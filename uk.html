@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cipla | UK Cultural Readiness Guide</title>
+<style>
+/* ─── RESET & ROOT ─────────────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+:root {
+  --teal:    #006666;
+  --teal-d:  #002e2e;
+  --teal-m:  #008080;
+  --teal-l:  #d9eeee;
+  --teal-p:  #f0f9f9;
+  --gold:    #c8902a;
+  --gold-l:  #fdf3e3;
+  --ink:     #1c1c2e;
+  --muted:   #556060;
+  --cream:   #faf8f4;
+  --white:   #ffffff;
+  --red:     #c62828;
+  --red-l:   #fff0f0;
+  --green:   #2e7d32;
+  --green-l: #edf7ee;
+
+  --serif:  Georgia, 'Times New Roman', serif;
+  --sans:   system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --mono:   'Courier New', Courier, monospace;
+}
+
+body { font-family:var(--sans); background:var(--cream); color:var(--ink); overflow-x:hidden; }
+
+/* ─── STICKY NAV ───────────────────────────────────────── */
+#topnav {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:rgba(0,30,30,0.96); backdrop-filter:blur(10px);
+  height:52px; display:flex; align-items:center;
+  justify-content:space-between; padding:0 28px;
+  border-bottom:1px solid rgba(0,180,180,0.15);
+}
+.nav-brand { font-family:var(--mono); font-size:11px; letter-spacing:3px; color:var(--teal-m); text-transform:uppercase; }
+.nav-links { display:flex; gap:4px; }
+.nav-links a {
+  font-size:11px; color:rgba(255,255,255,0.5); text-decoration:none;
+  padding:5px 11px; border-radius:20px; transition:all .2s; white-space:nowrap;
+}
+.nav-links a:hover { color:#fff; background:rgba(0,128,128,0.35); }
+#progress-bar { position:absolute; bottom:0; left:0; height:2px; background:var(--gold); width:0; transition:width .1s; }
+
+/* ─── HERO ─────────────────────────────────────────────── */
+#hero {
+  min-height:100vh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+  padding:100px 24px 64px;
+  background: radial-gradient(ellipse at 60% 40%, #005555 0%, #002222 55%, #001515 100%);
+  position:relative; overflow:hidden;
+}
+#hero::before {
+  content:''; position:absolute; inset:0;
+  background-image: linear-gradient(rgba(0,180,180,.06) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0,180,180,.06) 1px, transparent 1px);
+  background-size:48px 48px;
+}
+#hero::after {
+  content:''; position:absolute; width:800px; height:800px; border-radius:50%;
+  background:radial-gradient(circle, rgba(0,100,100,.18) 0%, transparent 70%);
+  top:50%; left:50%; transform:translate(-50%,-50%);
+}
+.hero-inner { position:relative; z-index:1; max-width:720px; }
+.hero-badge {
+  display:inline-block; font-family:var(--mono); font-size:10px;
+  letter-spacing:3px; color:var(--gold); text-transform:uppercase;
+  border:1px solid rgba(200,144,42,.4); padding:6px 18px;
+  border-radius:20px; margin-bottom:32px;
+}
+.hero-flag { font-size:72px; display:block; margin-bottom:20px; animation:float 3s ease-in-out infinite; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+.hero-title {
+  font-family:var(--serif); font-size:clamp(42px,8vw,84px); font-weight:700;
+  color:#fff; line-height:1.05; margin-bottom:14px;
+}
+.hero-title em { color:var(--teal-m); font-style:italic; }
+.hero-sub { font-size:16px; color:rgba(255,255,255,.5); line-height:1.8; margin-bottom:10px; }
+.hero-tag { font-family:var(--serif); font-style:italic; font-size:14px; color:var(--gold); margin-bottom:44px; }
+.hero-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.btn-p {
+  background:var(--teal-m); color:#fff; padding:14px 34px; border-radius:4px;
+  text-decoration:none; font-weight:600; font-size:14px;
+  transition:all .25s; border:none; cursor:pointer; font-family:var(--sans);
+}
+.btn-p:hover { background:var(--gold); transform:translateY(-2px); box-shadow:0 8px 24px rgba(0,0,0,.35); }
+.btn-g {
+  background:transparent; color:rgba(255,255,255,.65); padding:14px 34px;
+  border:1px solid rgba(255,255,255,.2); border-radius:4px; text-decoration:none;
+  font-size:14px; transition:all .25s; cursor:pointer; font-family:var(--sans);
+}
+.btn-g:hover { border-color:var(--teal-m); color:#fff; }
+.scroll-hint {
+  position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+  color:rgba(255,255,255,.25); font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  display:flex; flex-direction:column; align-items:center; gap:6px;
+  animation:pulse 2s ease-in-out infinite;
+}
+.scroll-hint::after { content:''; width:1px; height:28px; background:linear-gradient(to bottom, rgba(255,255,255,.25),transparent); }
+@keyframes pulse { 0%,100%{opacity:.3} 50%{opacity:1} }
+
+/* ─── SHARED SECTION STYLES ────────────────────────────── */
+.section { padding:88px 28px; }
+.section-inner { max-width:880px; margin:0 auto; }
+.sec-tag {
+  font-family:var(--mono); font-size:10px; letter-spacing:3px;
+  color:var(--gold); text-transform:uppercase; margin-bottom:12px;
+  display:flex; align-items:center; gap:10px;
+}
+.sec-tag::before { content:''; width:28px; height:1px; background:var(--gold); }
+.sh {
+  font-family:var(--serif); font-size:clamp(26px,4vw,42px);
+  font-weight:700; line-height:1.15; margin-bottom:16px; color:var(--teal-d);
+}
+.sh em { color:var(--teal-m); font-style:italic; }
+.sh-w { color:#fff !important; }
+.sh-w em { color:var(--teal-m); }
+.lead { font-size:15px; color:var(--muted); line-height:1.9; max-width:680px; margin-bottom:36px; }
+.lead-w { color:rgba(255,255,255,.55) !important; }
+.wave-div {
+  width:100%; overflow:hidden; line-height:0;
+}
+.wave-div svg { display:block; width:100%; }
+
+/* dark band */
+.dark-band { background:var(--teal-d); }
+.mid-band  { background:#003a3a; }
+
+
+/* Quote bubble */
+.a-quote {
+  background:var(--teal-d); border-radius:10px; padding:20px 24px;
+  display:flex; gap:14px; align-items:flex-start; margin:20px 0;
+}
+.a-quote-av { font-size:22px; flex-shrink:0; margin-top:2px; }
+.a-quote-text { font-family:var(--serif); font-style:italic; font-size:14.5px; color:rgba(255,255,255,.82); line-height:1.7; }
+
+/* quote block */
+.qblock {
+  border-left:4px solid var(--gold); padding:22px 28px;
+  background:linear-gradient(to right, var(--gold-l), transparent);
+  border-radius:0 8px 8px 0; margin:28px 0;
+}
+.qblock p { font-family:var(--serif); font-style:italic; font-size:17px; color:var(--teal-d); line-height:1.75; }
+
+/* ─── STAT BOXES ────────────────────────────────────────── */
+.stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:28px; }
+@media(max-width:560px){.stat-row{grid-template-columns:repeat(2,1fr)}}
+.stat-box { background:rgba(0,0,0,.25); border-radius:10px; padding:20px 14px; text-align:center; border:1px solid rgba(0,200,200,.12); }
+.stat-val { font-family:var(--serif); font-size:26px; font-weight:700; color:var(--gold); margin-bottom:4px; }
+.stat-lbl { font-size:11px; color:rgba(255,255,255,.45); letter-spacing:1px; }
+
+/* ─── NUMBERED SURPRISE CARDS ──────────────────────────── */
+.surp-list { display:flex; flex-direction:column; gap:14px; margin-bottom:28px; }
+.surp-item {
+  display:flex; gap:0; border-radius:10px; overflow:hidden;
+  border:1px solid var(--teal-l); background:#fff;
+  transition:box-shadow .3s; opacity:0; transform:translateY(16px);
+}
+.surp-item.vis { opacity:1; transform:translateY(0); transition:all .5s ease; }
+.surp-item:hover { box-shadow:0 6px 24px rgba(0,100,100,.1); }
+.surp-num {
+  background:var(--teal-d); min-width:60px; display:flex; align-items:center;
+  justify-content:center; font-family:var(--serif); font-size:32px;
+  font-weight:700; color:var(--gold);
+}
+.surp-body { padding:18px 22px; }
+.surp-body h3 { font-size:14px; font-weight:700; color:var(--teal-d); margin-bottom:6px; }
+.surp-body p { font-size:13px; color:var(--muted); line-height:1.7; }
+
+/* ─── TWO-COLUMN INFO ───────────────────────────────────── */
+.two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:20px; }
+@media(max-width:580px){.two-col{grid-template-columns:1fr}}
+.ic {
+  background:#fff; border:1px solid var(--teal-l); border-radius:8px;
+  padding:20px 22px;
+}
+.ic-dark { background:rgba(255,255,255,.05); border-color:rgba(0,200,200,.15); }
+.ic h4 { font-size:12.5px; font-weight:700; color:var(--teal-d); margin-bottom:10px; text-transform:uppercase; letter-spacing:.8px; }
+.ic-dark h4 { color:var(--teal-m); }
+.ic ul { padding-left:16px; }
+.ic li,.ic p { font-size:13px; color:var(--muted); line-height:1.75; margin-bottom:2px; }
+.ic-dark li,.ic-dark p { color:rgba(255,255,255,.6); }
+
+/* ─── TRANSPORT TABLE ───────────────────────────────────── */
+.tbl { width:100%; border-collapse:collapse; margin-bottom:20px; border-radius:8px; overflow:hidden; }
+.tbl thead th { background:var(--teal-m); color:#fff; font-family:var(--mono); font-size:10px; letter-spacing:2px; text-transform:uppercase; padding:12px 14px; text-align:left; }
+.tbl td { padding:12px 14px; font-size:13px; border-bottom:1px solid var(--teal-l); vertical-align:middle; }
+.tbl tr:nth-child(even) td { background:var(--teal-p); }
+.tbl tr:hover td { background:var(--teal-l); }
+.avoid { color:var(--red); font-weight:700; }
+.rec   { color:var(--green); font-weight:600; }
+
+/* ─── APPS GRID ─────────────────────────────────────────── */
+.apps { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:24px; }
+@media(max-width:560px){.apps{grid-template-columns:1fr 1fr}}
+.app-pill { background:#fff; border:1px solid var(--teal-l); border-radius:7px; padding:12px 14px; display:flex; gap:10px; align-items:center; }
+.app-icon { font-size:20px; flex-shrink:0; }
+.app-nm { font-size:12px; font-weight:700; color:var(--teal-d); }
+.app-ds { font-size:11px; color:var(--muted); }
+
+/* ─── CULTURE CARDS ─────────────────────────────────────── */
+.cult-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:24px; }
+@media(max-width:600px){.cult-grid{grid-template-columns:1fr}}
+.cult-card { background:#fff; border:1px solid var(--teal-l); border-top:3px solid var(--teal-m); border-radius:8px; padding:22px 18px; }
+.cult-card .cn { font-family:var(--serif); font-size:38px; font-weight:700; color:var(--teal-l); margin-bottom:6px; line-height:1; }
+.cult-card h3 { font-size:13px; font-weight:700; color:var(--teal-d); margin-bottom:8px; }
+.cult-card p  { font-size:12.5px; color:var(--muted); line-height:1.7; }
+
+/* tip list */
+.tip-list { background:var(--teal-p); border-radius:8px; padding:20px 24px; margin-bottom:20px; }
+.tip-list h4 { font-family:var(--mono); font-size:10px; letter-spacing:2px; color:var(--teal-m); text-transform:uppercase; margin-bottom:12px; }
+.tip-item { display:flex; gap:10px; font-size:13px; color:var(--ink); padding:7px 0; border-bottom:1px solid var(--teal-l); line-height:1.5; }
+.tip-item:last-child { border-bottom:none; }
+.tip-item::before { content:'→'; color:var(--teal-m); flex-shrink:0; font-weight:700; }
+
+/* ─── COST TABLE ─────────────────────────────────────────── */
+.ctbl { width:100%; border-collapse:collapse; margin-bottom:16px; border-radius:8px; overflow:hidden; }
+.ctbl thead th { background:var(--teal-d); color:rgba(255,255,255,.55); font-family:var(--mono); font-size:10px; letter-spacing:2px; padding:12px 16px; text-align:left; }
+.ctbl td { padding:12px 16px; font-size:13px; border-bottom:1px solid var(--teal-l); background:#fff; }
+.ctbl tr:nth-child(even) td { background:var(--teal-p); }
+.ctbl tfoot td { background:var(--teal-d); color:var(--gold); font-weight:700; }
+
+/* ─── FLIP CARDS ─────────────────────────────────────────── */
+.flip-row { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:10px; }
+@media(max-width:520px){.flip-row{grid-template-columns:1fr}}
+.fc { perspective:700px; cursor:pointer; height:140px; }
+.fc-inner { position:relative; width:100%; height:100%; transform-style:preserve-3d; transition:transform .5s; }
+.fc.flipped .fc-inner { transform:rotateY(180deg); }
+.fc-f,.fc-b { position:absolute; inset:0; border-radius:10px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:16px; text-align:center; backface-visibility:hidden; }
+.fc-f { background:var(--teal-d); border:1px solid rgba(0,200,200,.2); }
+.fc-f .fi { font-size:28px; margin-bottom:8px; }
+.fc-f p { font-size:12px; color:rgba(255,255,255,.65); line-height:1.5; }
+.fc-b { background:var(--gold-l); border:1px solid rgba(200,144,42,.35); transform:rotateY(180deg); }
+.fc-b p { font-size:12px; color:var(--ink); line-height:1.6; font-weight:500; }
+
+/* ─── DECODER ────────────────────────────────────────────── */
+.decoder-wrap { border-radius:12px; overflow:hidden; margin-bottom:20px; }
+.decoder-wrap table { width:100%; border-collapse:collapse; }
+.decoder-wrap thead th { background:var(--teal-d); color:rgba(255,255,255,.45); font-family:var(--mono); font-size:10px; letter-spacing:2px; padding:12px 16px; text-align:left; }
+.decoder-wrap tbody tr { border-bottom:1px solid rgba(255,255,255,.06); transition:background .2s; }
+.decoder-wrap tbody tr:hover { background:rgba(0,128,128,.12); }
+.decoder-wrap td { padding:14px 16px; background:var(--ink); vertical-align:middle; }
+.say { font-family:var(--serif); font-style:italic; color:rgba(255,255,255,.65); font-size:13.5px; }
+.mean { font-weight:600; font-size:13.5px; color:#fff; }
+.risk { display:inline-block; padding:3px 11px; border-radius:12px; font-size:11px; font-weight:600; white-space:nowrap; }
+.r-h { background:#ffebee; color:var(--red); }
+.r-m { background:#fff8e1; color:#b45309; }
+.r-l { background:#e8f5e9; color:var(--green); }
+
+/* ─── SCENARIOS ──────────────────────────────────────────── */
+.sc-card { background:#fff; border:1px solid var(--teal-l); border-radius:12px; overflow:hidden; margin-bottom:24px; }
+.sc-hd { background:var(--teal-d); padding:16px 22px; display:flex; align-items:center; gap:14px; }
+.sc-num { width:36px; height:36px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:17px; font-weight:700; color:#fff; flex-shrink:0; }
+.sc-hd h3 { color:#fff; font-size:15px; font-weight:600; }
+.sc-body { padding:22px; }
+.sc-sit { background:var(--teal-p); border-left:3px solid var(--teal-m); border-radius:0 7px 7px 0; padding:14px 18px; font-size:13.5px; color:var(--ink); line-height:1.7; margin-bottom:18px; }
+.sc-sit em { font-style:italic; color:var(--teal-d); }
+.opt { width:100%; text-align:left; padding:11px 16px; background:var(--cream); border:1px solid var(--teal-l); border-radius:6px; margin-bottom:8px; cursor:pointer; font-size:13px; color:var(--ink); font-family:var(--sans); transition:all .2s; display:flex; gap:12px; align-items:center; }
+.opt:hover { background:var(--teal-l); border-color:var(--teal-m); }
+.opt.ok { background:var(--green-l); border-color:var(--green); color:var(--green); font-weight:600; }
+.opt.no { background:var(--red-l); border-color:var(--red); color:var(--red); }
+.opt-l { width:24px; height:24px; border-radius:50%; background:#fff; border:1.5px solid currentColor; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; flex-shrink:0; }
+.sc-rev { background:var(--green-l); border:1px solid var(--green); border-radius:8px; padding:14px 18px; display:none; animation:slideDown .3s ease; margin-top:4px; }
+.sc-rev.show { display:block; }
+@keyframes slideDown { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+.sc-rev strong { font-size:12px; color:var(--green); letter-spacing:1px; text-transform:uppercase; display:block; margin-bottom:5px; }
+.sc-rev p { font-size:13px; color:var(--ink); line-height:1.7; }
+
+/* ─── EMERGENCY ──────────────────────────────────────────── */
+.em-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:24px; }
+@media(max-width:520px){.em-grid{grid-template-columns:1fr}}
+.em-card { border-radius:10px; padding:22px; }
+.em-num { font-family:var(--serif); font-size:40px; font-weight:700; margin-bottom:4px; }
+.em-lbl { font-size:13.5px; font-weight:600; margin-bottom:4px; }
+.em-sub { font-size:12px; opacity:.65; }
+
+/* ─── DOS & DON'TS ───────────────────────────────────────── */
+.dd-wrap { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px; }
+@media(max-width:540px){.dd-wrap{grid-template-columns:1fr}}
+.dd-col { border-radius:10px; overflow:hidden; }
+.dd-hd { padding:14px 18px; font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; }
+.do-hd { background:var(--green); color:#fff; }
+.dn-hd { background:var(--red);   color:#fff; }
+.dd-item { padding:11px 18px; font-size:13px; border-bottom:1px solid; display:flex; gap:10px; align-items:flex-start; line-height:1.5; }
+.do-item { background:var(--green-l); border-color:rgba(46,125,50,.12); }
+.dn-item { background:var(--red-l);   border-color:rgba(198,40,40,.12); }
+.dd-item:last-child { border-bottom:none; }
+.do-item::before { content:'✓'; color:var(--green); font-weight:700; flex-shrink:0; }
+.dn-item::before { content:'✗'; color:var(--red);   font-weight:700; flex-shrink:0; }
+
+/* ─── GOLDEN RULE BOX ───────────────────────────────────── */
+.gold-box { background:var(--teal-d); border-radius:10px; padding:24px 28px; display:flex; gap:16px; align-items:center; margin-bottom:20px; }
+.gold-box-icon { font-size:36px; flex-shrink:0; }
+.gold-box p { color:rgba(255,255,255,.85); font-size:14px; line-height:1.75; }
+.gold-box strong { color:var(--gold); }
+
+/* ─── CLOSING ────────────────────────────────────────────── */
+#closing {
+  background:var(--teal-d); padding:80px 28px;
+  text-align:center;
+}
+#closing .close-inner { max-width:600px; margin:0 auto; }
+#closing .big-q { font-family:var(--serif); font-style:italic; font-size:clamp(18px,3vw,26px); color:rgba(255,255,255,.85); line-height:1.7; margin-bottom:28px; }
+#closing .big-q strong { color:var(--gold); }
+#closing .meta { font-family:var(--mono); font-size:11px; letter-spacing:2px; color:rgba(255,255,255,.2); text-transform:uppercase; }
+
+/* ─── SCROLL REVEAL ──────────────────────────────────────── */
+.reveal { opacity:0; transform:translateY(22px); transition:all .55s ease; }
+.reveal.vis { opacity:1; transform:translateY(0); }
+
+/* ─── RESPONSIVE ─────────────────────────────────────────── */
+@media(max-width:600px){
+  #topnav .nav-links { display:none; }
+  .section { padding:60px 18px; }
+  .stat-row { grid-template-columns:repeat(2,1fr); }
+  .cult-grid { grid-template-columns:1fr; }
+  .apps { grid-template-columns:1fr 1fr; }
+  .hero-title { font-size:38px; }
+  .tbl thead { display:none; }
+  .tbl td { display:block; padding:8px 12px; }
+}
+
+/* ─── BACK TO HUB BUTTON ───────────────────────────────── */
+.btn-back-hub {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:10px; font-weight:600; letter-spacing:0.08em;
+  text-transform:uppercase; color:rgba(255,255,255,0.7);
+  background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15);
+  padding:5px 13px; border-radius:20px; cursor:pointer;
+  transition:all .2s; white-space:nowrap; text-decoration:none;
+  margin-right:8px;
+}
+.btn-back-hub:hover { background:rgba(0,128,128,0.4); color:#fff; border-color:rgba(0,180,180,0.4); }
+.btn-back-hub svg { width:12px; height:12px; }
+
+
+/* ─── MASCOT (added for consistency) ──────────────────────── */
+.mascot-wrap{position:fixed;bottom:24px;right:24px;z-index:100;display:flex;align-items:flex-end;gap:10px;pointer-events:none}
+.mascot-bubble{background:#fff;border-radius:14px 14px 4px 14px;border:2px solid var(--gold);padding:12px 16px;max-width:240px;font-size:0.78rem;line-height:1.5;color:var(--ink);box-shadow:0 4px 20px rgba(0,0,0,.14);opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease;pointer-events:none}
+.mascot-bubble.show{opacity:1;transform:translateY(0)}
+.mascot-bubble strong{color:var(--teal)}
+.mascot-figure{font-size:2.8rem;line-height:1;filter:drop-shadow(0 2px 6px rgba(0,0,0,.2));animation:mascotBob 2s ease-in-out infinite}
+@keyframes mascotBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+/* ─── SEASON CARDS (added for consistency) ─────────────────── */
+.season-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;margin-bottom:28px}
+.season-card{border-radius:12px;padding:22px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06)}
+.season-icon{font-size:2rem;display:block;margin-bottom:10px}
+.season-name{font-weight:700;font-size:0.85rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+.season-temp{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:8px}
+.season-detail{font-size:0.8rem;color:rgba(255,255,255,.6);line-height:1.5}
+
+/* ─── HOUSING TAB SWITCHER (added for consistency) ─────────── */
+.tab-row{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.tab-btn{padding:9px 22px;border-radius:30px;border:2px solid var(--teal-l);background:transparent;font-family:var(--sans);font-size:0.85rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
+.tab-btn.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* ─── SAFETY LIST (emergency section) ──────────────────────── */
+.safety-list{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.safety-item{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.06);border-radius:10px;padding:14px 18px;border-left:3px solid var(--gold)}
+.safety-item .si-icon{font-size:1.2rem;flex-shrink:0}
+.safety-item p{font-size:0.85rem;color:rgba(255,255,255,.75);line-height:1.5}
+
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ════════════════════════════════════════════════ -->
+<nav id="topnav">
+  <div class="nav-brand">Cipla · UK Guide</div>
+  <div class="nav-links">
+    <a class="btn-back-hub" onclick="if(window.parent && window.parent.closeToolkit){window.parent.closeToolkit();}else{window.history.back();}" href="#">
+      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Hub
+    </a>
+    <a href="#surprises">5 Surprises</a>
+    <a href="#essentials">Essentials</a>
+    <a href="#transport">Transport</a>
+    <a href="#work">Work Culture</a>
+    <a href="#dining">Dining</a>
+    <a href="#cost">Cost</a>
+    <a href="#daily">Daily Life</a>
+    <a href="#health">Housing</a>
+    <a href="#customs">Customs</a>
+    <a href="#emergency">Emergency</a>
+    <a href="#rules">Rules</a>
+  </div>
+  <div id="progress-bar"></div>
+</nav>
+
+<!-- ─── FLOATING MASCOT ─────────────────────────────── -->
+<div class="mascot-wrap">
+  <div class="mascot-bubble" id="mascotBubble"><strong>☂️ Tip:</strong> <span id="mascotText">In the UK, silence in a meeting is not boredom — it is thinking. Let the pause breathe.</span></div>
+  <div class="mascot-figure">🎩</div>
+</div>
+
+<!-- ══ HERO ═══════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Cipla ALIVE FY26 · EMEU Onboarding Series · Short-Term Assignment Guide</div>
+    <span class="hero-flag">🇬🇧</span>
+    <h1 class="hero-title">Welcome to the <em>United Kingdom</em></h1>
+    <p class="hero-sub">A Cultural Readiness Guide for Cipla Professionals</p>
+    <p class="hero-tag">"Everything you wish someone had told you before you landed at Heathrow."</p>
+    <div class="hero-btns">
+      <a href="#snapshot" class="btn-p">Start the Guide</a>
+      <a href="#rules" class="btn-g">Jump to Golden Rules</a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- ══ COUNTRY SNAPSHOT ════════════════════════════════════ -->
+<section class="section dark-band" id="snapshot">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 01 · Country Snapshot</div>
+    <h2 class="sh sh-w">United Kingdom — <em>at a Glance</em></h2>
+    <p class="lead lead-w">Bookmark this page. You will thank yourself later — probably at 11 pm on a Tuesday when you can't figure out how to see a doctor.</p>
+    <div class="stat-row reveal">
+      <div class="stat-box"><div class="stat-val">67.8M</div><div class="stat-lbl">Population</div></div>
+      <div class="stat-box"><div class="stat-val">£ GBP</div><div class="stat-lbl">Currency</div></div>
+      <div class="stat-box"><div class="stat-val">GMT</div><div class="stat-lbl">Time Zone</div></div>
+      <div class="stat-box"><div class="stat-val">−4.5h</div><div class="stat-lbl">Behind India</div></div>
+    </div>
+    <div class="two-col reveal">
+      <div class="ic ic-dark">
+        <h4>🗺️ Key Facts</h4>
+        <ul>
+          <li>Capital → London, 9 million people</li>
+          <li>Country size → 243,610 km²</li>
+          <li>Driving side → Left (same as India ✅)</li>
+          <li>Emergency → 999 or 112</li>
+          <li>Visa → UK Business visa required</li>
+          <li>Exchange rate → 1 GBP ≈ ₹107</li>
+          <li>Time → UK is 4.5 hrs behind India (5.5 hrs BST)</li>
+        </ul>
+      </div>
+      <div class="ic ic-dark">
+        <h4>🌤️ Climate at a Glance</h4>
+        <ul>
+          <li>Overall → Temperate, mild, frequently rainy</li>
+          <li>Summer (Jun–Aug) → 17–22°C, warmest</li>
+          <li>Winter (Nov–Feb) → 2–8°C, grey, short days</li>
+          <li>Rain → Possible any month ☂️</li>
+          <li>Office → Heavily air-conditioned — carry a light layer</li>
+          <li>Spring (Mar–May) → 8–15°C, occasional rain</li>
+          <li>Autumn (Sep–Nov) → 8–14°C, wet and windy</li>
+        </ul>
+      </div>
+    </div>
+    <div class="a-quote reveal">
+      <div class="a-quote-av">🎩</div>
+      <div class="a-quote-text">"67 million people. I was surprised how many of them know about Bollywood."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5 SURPRISES ════════════════════════════════════════ -->
+<section class="section" id="surprises" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="sec-tag">Section 02 · Five Things</div>
+    <h2 class="sh">Five Things That Will <em>Surprise You</em></h2>
+    <p class="lead">Forget everything you think you know. The UK isn't like the movies, and it definitely isn't like what corporate orientation told you.</p>
+    <div class="surp-list">
+      <div class="surp-item"><div class="surp-num">1</div><div class="surp-body"><h3>Indirect is not unclear</h3><p>When a British colleague says "That's quite interesting," they mean "I disagree completely." There is an entire code to learn — Section 8 has the full decoder.</p></div></div>
+      <div class="surp-item"><div class="surp-num">2</div><div class="surp-body"><h3>On time means early</h3><p>9:00 AM means everyone is seated and ready at 9:00 AM. 9:01 is late. Five minutes early is on time. No exceptions, no explanations.</p></div></div>
+      <div class="surp-item"><div class="surp-num">3</div><div class="surp-body"><h3>The pub is a boardroom</h3><p>The most important relationship-building happens over a pint. Accepting the invitation is essential. Drinking is completely optional.</p></div></div>
+      <div class="surp-item"><div class="surp-num">4</div><div class="surp-body"><h3>Understatement is the language</h3><p>"Not bad at all" means excellent. "A bit disappointed" means very upset. This is not politeness — it is a precise communication system.</p></div></div>
+      <div class="surp-item"><div class="surp-num">5</div><div class="surp-body"><h3>☕ Tea is social currency</h3><p>Offering to make tea for colleagues is one of the most effective relationship-building moves available to you. Do it early, do it often, and always ask how they take it.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRANSPORT ═══════════════════════════════════════════ -->
+<section class="section mid-band" id="transport">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 03 · Getting Around</div>
+    <h2 class="sh sh-w">Climate & <em>Transport</em></h2>
+    <p class="lead lead-w">One rule above all others: never, ever get into an unmarked taxi.</p>
+
+    <!-- UK Seasons -->
+    <div class="season-grid reveal">
+      <div class="season-card">
+        <span class="season-icon">☀️</span>
+        <div class="season-name">Summer · Jun–Aug</div>
+        <div class="season-temp">18°C – 28°C</div>
+        <div class="season-detail">Surprisingly warm and pleasant. Long evenings — light until 9–10pm. Rare heatwaves above 30°C. No AC in most homes or offices.</div>
+      </div>
+      <div class="season-card">
+        <span class="season-icon">🍂</span>
+        <div class="season-name">Autumn · Sep–Nov</div>
+        <div class="season-temp">8°C – 16°C</div>
+        <div class="season-detail">Colourful, mild early but colder by November. Increasing rain — the umbrella becomes permanent. Beautiful in parks.</div>
+      </div>
+      <div class="season-card">
+        <span class="season-icon">🧥</span>
+        <div class="season-name">Winter · Dec–Feb</div>
+        <div class="season-temp">1°C – 9°C</div>
+        <div class="season-detail">Grey, damp, and dark — short days. Snow rare but frost common. Proper coat, scarf and gloves are essential. Christmas is magical.</div>
+      </div>
+      <div class="season-card">
+        <span class="season-icon">🌧️</span>
+        <div class="season-name">Spring · Mar–May</div>
+        <div class="season-temp">7°C – 16°C</div>
+        <div class="season-detail">Unpredictable — sun and rain on the same afternoon. Layer up. Blossom appears in parks and Brits suddenly sit outside in any available sunshine.</div>
+      </div>
+    </div>
+    <div style="background:rgba(249,168,37,.1);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:14px 18px;margin:0 0 28px;font-size:0.85rem;color:rgba(255,255,255,.82)">
+      <strong style="color:var(--gold)">Packing rule:</strong> Always carry a compact umbrella, a layer, and a light jacket regardless of season. The weather changes daily — often hourly.
+    </div>
+
+    <table class="tbl reveal">
+      <thead><tr><th>Mode</th><th>Cost</th><th>Safety</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>🚇 London Underground</td><td>£2.80–£5.25 (Oyster)</td><td>Very safe</td><td class="rec">Best for central London</td></tr>
+        <tr><td>🚌 Bus</td><td>£1.75 flat fare</td><td>Safe</td><td>Oyster / contactless only</td></tr>
+        <tr><td>🚗 Uber</td><td>£8–£18 typical</td><td>Very safe</td><td class="rec">RECOMMENDED</td></tr>
+        <tr><td>🚕 Black Cab</td><td>£15–£40 typical</td><td>Very safe</td><td>Can hail on street</td></tr>
+        <tr><td>🚂 National Rail</td><td>Varies — book early</td><td>Very safe</td><td>Use Trainline app</td></tr>
+        <tr><td>🚫 Unmarked street taxis</td><td>—</td><td class="avoid">⚠️ Unsafe</td><td class="avoid">NEVER USE</td></tr>
+      </tbody>
+    </table>
+    <div class="apps reveal">
+      <div class="app-pill"><div class="app-icon">🚗</div><div><div class="app-nm">Uber</div><div class="app-ds">Safest taxi</div></div></div>
+      <div class="app-pill"><div class="app-icon">🗺️</div><div><div class="app-nm">Citymapper</div><div class="app-ds">London navigator</div></div></div>
+      <div class="app-pill"><div class="app-icon">🚂</div><div><div class="app-nm">Trainline</div><div class="app-ds">National rail</div></div></div>
+      <div class="app-pill"><div class="app-icon">🚇</div><div><div class="app-nm">TfL Oyster</div><div class="app-ds">Top up & balance</div></div></div>
+      <div class="app-pill"><div class="app-icon">💳</div><div><div class="app-nm">Revolut / Wise</div><div class="app-ds">Zero fees abroad</div></div></div>
+      <div class="app-pill"><div class="app-icon">🏥</div><div><div class="app-nm">NHS App</div><div class="app-ds">GP appointments</div></div></div>
+    </div>
+    <div class="a-quote reveal">
+      <div class="a-quote-av">🎩</div>
+      <div class="a-quote-text">"I took an unmarked cab from Heathrow on Day 1. Never again. Use Uber — always."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WORK CULTURE ════════════════════════════════════════ -->
+<section class="section" id="work" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="sec-tag">Section 04 · Work Culture</div>
+    <h2 class="sh">The British Office — <em>What Nobody Tells You</em></h2>
+    <p class="lead">Walk in and everything looks familiar. Desks. Computers. Coffee machines. But beneath the surface, the rules are completely different.</p>
+    <div class="cult-grid reveal">
+      <div class="cult-card"><div class="cn">01</div><h3>⏰ Punctuality is respect</h3><p>Meetings start on time. Arriving 5 minutes late is noticed. Joining a video call 2 minutes early is considered professional. Nine o'clock means nine o'clock.</p></div>
+      <div class="cult-card"><div class="cn">02</div><h3>💬 Understatement is communication</h3><p>When a British colleague says "that's quite interesting" they may mean "I have serious concerns." Learn to read between the lines — directness is seen as aggressive.</p></div>
+      <div class="cult-card"><div class="cn">03</div><h3>🤝 Hierarchy is flat</h3><p>Senior people are addressed by first name. Take initiative and speak up in meetings. Silence is read as having nothing to contribute.</p></div>
+    </div>
+    <div class="tip-list reveal">
+      <h4>For Indian Professionals — Read This Carefully</h4>
+      <div class="tip-item">Less formal than Indian corporates — first name basis from Day 1</div>
+      <div class="tip-item">Feedback is indirect — "perhaps we could consider" means "this needs to change"</div>
+      <div class="tip-item">Meetings have agendas — read them before and come prepared</div>
+      <div class="tip-item">Do not interrupt — wait for a natural pause before speaking</div>
+      <div class="tip-item">After-work drinks are networking — attendance matters more than drinking</div>
+      <div class="tip-item">Small talk is a skill — weather, weekend plans, football are safe topics</div>
+      <div class="tip-item">Reliability is currency — do what you say you will do, when you said you'd do it</div>
+    </div>
+    <div class="qblock reveal">
+      <p>"In the UK, what is left unsaid is often more important than what is said. The ability to read the room is a professional competency, not a soft skill."</p>
+    </div>
+    <div class="a-quote reveal">
+      <div class="a-quote-av">🎩</div>
+      <div class="a-quote-text">"My manager said my presentation was 'quite good.' I later found out that meant he wanted major changes."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DINING ══════════════════════════════════════════════ -->
+<section class="section dark-band" id="dining">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 05 · Dining & Nightlife</div>
+    <h2 class="sh sh-w">Dining, Pubs & <em>Nightlife</em></h2>
+    <p class="lead lead-w">The pub is not just a bar. It is an institution — and refusing to go is a professional mistake.</p>
+    <div class="two-col reveal">
+      <div class="ic ic-dark">
+        <h4>🍽️ Dining Options</h4>
+        <ul>
+          <li>🥪 Casual lunch (Pret, Leon, Itsu) → £6–12</li>
+          <li>🍺 Pub lunch → £12–18, great atmosphere</li>
+          <li>🍜 Mid-range dinner (Wagamama, Dishoom) → £20–35</li>
+          <li>🍽️ Business dinner → £40–70 per person</li>
+          <li>📌 Dishoom = London's most popular Indian — always book ahead</li>
+          <li>🍛 South Indian → Saravana Bhavan, London</li>
+          <li>🕌 Halal → widely available in London, Birmingham, Manchester</li>
+        </ul>
+      </div>
+      <div class="ic ic-dark">
+        <h4>💳 Tipping & Bill Rules</h4>
+        <ul>
+          <li>12.5% service charge often added — check bill first</li>
+          <li>If no charge → tip 10–15% for good service</li>
+          <li>At pub bar → do NOT tip bartender — not expected</li>
+          <li>Split bills → common and accepted</li>
+          <li>Cash → almost never needed — card everywhere</li>
+        </ul>
+        <br>
+        <h4>🍺 Pub Culture</h4>
+        <ul>
+          <li>Going after work is normal and expected</li>
+          <li>Non-drinkers → soft drink is fine, no comment made</li>
+          <li>Rounds → one person buys for whole group, turns rotate</li>
+          <li>Pub quiz → great team bonding</li>
+        </ul>
+      </div>
+    </div>
+    <div class="a-quote reveal">
+      <div class="a-quote-av">🎩</div>
+      <div class="a-quote-text">"I almost skipped the pub on Week 1. Joining was the best decision I made for my relationships here. You don't have to drink. You have to show up."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COST OF LIVING ══════════════════════════════════════ -->
+<section class="section" id="cost" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="sec-tag">Section 06 · Cost of Living</div>
+    <h2 class="sh">London Is <em>Expensive.</em> Here's How to Survive It.</h2>
+    <p class="lead">London is 60–80% more expensive than Mumbai. Plan your daily budget before you land.</p>
+    <table class="ctbl reveal">
+      <thead><tr><th>Expense</th><th>Cost (GBP)</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>🏠 Serviced apartment (1BR)</td><td>£1,800–£3,500/mo</td><td>Canary Wharf, City, South Bank</td></tr>
+        <tr><td>⚡ Utilities (incl. broadband)</td><td>£120–£180/mo</td><td>Usually included in serviced apts</td></tr>
+        <tr><td>🛒 Groceries</td><td>£250–£400/mo</td><td>Sainsbury's, Tesco — much cheaper than eating out</td></tr>
+        <tr><td>🍽️ Dining out (mid-range)</td><td>£18–£35 per meal</td><td>Per person</td></tr>
+        <tr><td>🚇 Transport — Oyster daily</td><td>£8–£15/day</td><td>Depends on number of journeys</td></tr>
+        <tr><td>📱 Mobile SIM (UK local)</td><td>£10–£25/mo</td><td>EE, Vodafone, Three — get Day 1</td></tr>
+        <tr><td>🏥 Health insurance</td><td>Covered by Cipla</td><td>Confirm scope with HR before travel</td></tr>
+      </tbody>
+      <tfoot><tr><td>💷 Total — single, comfortable</td><td>£2,500–£4,500/mo</td><td>Varies by lifestyle</td></tr></tfoot>
+    </table>
+    <div class="two-col reveal">
+      <div class="ic">
+        <h4>💡 Money Saving Tips</h4>
+        <ul>
+          <li>Cook at home — supermarkets are excellent</li>
+          <li>Use Sainsbury's or Lidl — avoid Waitrose daily</li>
+          <li>Pub lunch deals → £6–10 on weekdays</li>
+          <li>Book trains 4–6 weeks early — saves up to 80%</li>
+          <li>26-30 Railcard → saves one-third on all rail</li>
+          <li>Use Revolut or Wise — zero fees abroad</li>
+          <li>Free museums → British Museum, Tate Modern, V&amp;A</li>
+          <li>IKEA for basics — affordable for temporary stays</li>
+        </ul>
+      </div>
+      <div class="ic">
+        <h4>🇮🇳 India vs UK</h4>
+        <ul>
+          <li>Mumbai mid-range dinner → ₹800–1,500</li>
+          <li>UK equivalent → £18–35 (₹1,900–3,700)</li>
+          <li>Groceries → roughly 2× Mumbai prices</li>
+          <li>Transport → comparable if you use the Tube</li>
+          <li>Banking → open Monzo / Starling with just your passport — free, instant</li>
+        </ul>
+      </div>
+    </div>
+    <div class="a-quote reveal">
+      <div class="a-quote-av">🎩</div>
+      <div class="a-quote-text">"I spent ₹8,000 on one dinner in Week 1. Then I found the pub lunch. Game changed."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DAILY LIVING ════════════════════════════════════════ -->
+<section class="section mid-band" id="daily">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 07 · Daily Living</div>
+    <h2 class="sh sh-w">Daily <em>Living</em></h2>
+    <p class="lead lead-w">The small things that nobody briefed you on — until now.</p>
+    <div class="two-col reveal">
+      <div class="ic ic-dark">
+        <h4>🧹 Domestic Life</h4>
+        <ul>
+          <li>Domestic help → not standard — cleaning is self-managed</li>
+          <li>Serviced apts → usually include weekly cleaning</li>
+          <li>Laundry → most apartments have washing machine</li>
+          <li>Dry cleaning shops for formal wear</li>
+        </ul>
+      </div>
+      <div class="ic ic-dark">
+        <h4>🛒 Groceries</h4>
+        <ul>
+          <li>Main → Tesco, Sainsbury's, Asda, Morrisons</li>
+          <li>Premium → Waitrose, M&S Food — treat, not daily</li>
+          <li>Budget → Lidl, Aldi — excellent quality</li>
+          <li>Indian groceries → Patel Brothers, Southall Broadway</li>
+          <li>Online → Ocado, Tesco online — set up in Week 1</li>
+        </ul>
+      </div>
+      <div class="ic ic-dark">
+        <h4>📱 SIM & Utilities</h4>
+        <ul>
+          <li>SIM card → buy Day 1 at EE, Three or Vodafone — bring passport</li>
+          <li>Best for short stays → Three or GiffGaff — no contract</li>
+          <li>Cost → £10–25/month unlimited data + calls</li>
+          <li>Broadband → usually included in serviced apartments</li>
+        </ul>
+      </div>
+      <div class="ic ic-dark">
+        <h4>🪙 Oyster Card</h4>
+        <p>Get one at any Tube station on Day 1. Tap in and tap out on every journey. Works on Tube, bus, overground and Elizabeth line. Top up at any station or via the TfL app.</p>
+      </div>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,.4);text-align:center;margin-bottom:14px;font-style:italic">👆 Click each card to reveal the correct behaviour</p>
+    <div class="flip-row reveal">
+      <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc-inner">
+          <div class="fc-f"><div class="fi">🛒</div><p>You want to skip the queue at a shop or bus stop</p></div>
+          <div class="fc-b"><p>❌ Do not. Queuing is a cultural institution in the UK. Join the end and wait — always.</p></div>
+        </div>
+      </div>
+      <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc-inner">
+          <div class="fc-f"><div class="fi">🚇</div><p>You are on an escalator in the Tube station</p></div>
+          <div class="fc-b"><p>✅ Stand on the RIGHT. Leave the LEFT free for people walking. This is a strict London rule.</p></div>
+        </div>
+      </div>
+      <div class="fc" onclick="this.classList.toggle('flipped')">
+        <div class="fc-inner">
+          <div class="fc-f"><div class="fi">👋</div><p>Someone asks "How are you?" while passing in the corridor</p></div>
+          <div class="fc-b"><p>✅ Say "Fine thanks, you?" and keep walking. This is a greeting, not an invitation to share your day.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOUSING & HEALTH ════════════════════════════════════ -->
+<section class="section" id="health" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="sec-tag">Section 08 · Housing &amp; Healthcare</div>
+    <h2 class="sh">Housing & <em>Healthcare</em></h2>
+    <p class="lead">Where to live and what to do when you're sick at 11 pm on a Tuesday. (It happens to everyone.)</p>
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="switchTab('short','housing')">Short Stay &lt;4 weeks</button>
+      <button class="tab-btn" onclick="switchTab('long','housing')">Long Stay 4 weeks–6 months</button>
+    </div>
+    <div id="tab-short-housing" class="tab-panel active">
+      <div class="two-col reveal">
+        <div class="ic">
+          <h4>🏨 Best option: Hotel</h4>
+          <ul>
+            <li>Premier Inn or Marriott — reliable, well-located, good Wi-Fi</li>
+            <li>Citadines and Saco (serviced apartments) for 2–4 weeks</li>
+            <li>Good areas: City of London, Canary Wharf, South Bank</li>
+            <li>Costs usually confirmed and arranged by Cipla HR</li>
+          </ul>
+        </div>
+        <div class="ic">
+          <h4>💡 Short Stay Tips</h4>
+          <ul>
+            <li>Get an Oyster card or use contactless — Day 1</li>
+            <li>Download Citymapper before you arrive</li>
+            <li>Sainsbury's Local or Tesco Express for quick groceries</li>
+            <li>Keep HR contact saved — they manage the booking logistics</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="tab-long-housing" class="tab-panel">
+      <div class="two-col reveal">
+        <div class="ic">
+          <h4>🏢 Serviced Apartment (recommended)</h4>
+          <ul>
+            <li>Fully furnished, bills included, flexible term</li>
+            <li>Cost: £1,800–£3,500/month for 1BR</li>
+            <li>Best areas: Canary Wharf, South Bank, Farringdon, Shoreditch, Victoria</li>
+            <li>Chains: Saco, Citadines, Native, Locke Hotels</li>
+          </ul>
+        </div>
+        <div class="ic">
+          <h4>🏠 Private Rental (3+ months)</h4>
+          <ul>
+            <li>Requires: income proof, references, deposit (5–6 weeks rent)</li>
+            <li>HR should provide employment letter and support</li>
+            <li>Platforms: Rightmove, Zoopla, SpareRoom</li>
+            <li>London market is tight — start search 4–6 weeks before arrival</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="two-col reveal" style="margin-top:20px">
+      <div class="ic">
+      <div class="ic">
+        <h4>🏥 NHS — National Health Service</h4>
+        <ul>
+          <li>Free healthcare for all, including visa holders who paid the Immigration Health Surcharge</li>
+          <li>Register with a local GP practice using your UK address — takes a few days to set up</li>
+          <li>Urgent Care Centres → for non-emergency issues — no appointment needed</li>
+          <li>Emergency → go to A&amp;E or call 999</li>
+          <li>Pharmacy → Boots and Lloyds everywhere — pharmacists can advise on most issues</li>
+          <li>Private healthcare → Cipla provides insurance — use for faster access</li>
+          <li>Indian medicines → bring a 3-month supply — UK brands are different</li>
+        </ul>
+      </div>
+    </div>
+    <div class="a-quote reveal">
+      <div class="a-quote-av">🎩</div>
+      <div class="a-quote-text">"I got a fever on Week 2. NHS Urgent Care sorted it in 2 hours. No cost. I was genuinely shocked."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CUSTOMS & DECODER ═══════════════════════════════════ -->
+<section class="section" id="customs" style="background:var(--ink)">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 09 · Customs &amp; Language</div>
+    <h2 class="sh sh-w">What They Say vs. <em>What They Mean</em></h2>
+    <p class="lead lead-w">Master this table and you will navigate every meeting, every email, every feedback session. The British do not say what they mean.</p>
+    <div class="decoder-wrap reveal">
+      <table>
+        <thead><tr><th style="width:40%">What they say</th><th style="width:40%">What they actually mean</th><th>Risk</th></tr></thead>
+        <tbody>
+          <tr><td class="say">"That's quite interesting"</td><td class="mean">I disagree completely.</td><td><span class="risk r-h">🔴 High</span></td></tr>
+          <tr><td class="say">"I might be wrong but..."</td><td class="mean">I am definitely right — listen carefully.</td><td><span class="risk r-h">🔴 High</span></td></tr>
+          <tr><td class="say">"With the greatest respect..."</td><td class="mean">I think you are being foolish.</td><td><span class="risk r-h">🔴 High</span></td></tr>
+          <tr><td class="say">"Perhaps we could consider..."</td><td class="mean">Do this.</td><td><span class="risk r-h">🔴 High</span></td></tr>
+          <tr><td class="say">"I wonder if the timeline is perhaps a little ambitious?"</td><td class="mean">This timeline is impossible. Change it.</td><td><span class="risk r-h">🔴 High</span></td></tr>
+          <tr><td class="say">"A few areas that might benefit from more depth"</td><td class="mean">These sections need significant rework.</td><td><span class="risk r-h">🔴 High</span></td></tr>
+          <tr><td class="say">"Not bad at all"</td><td class="mean">This is genuinely excellent.</td><td><span class="risk r-l">🟢 Safe</span></td></tr>
+          <tr><td class="say">"Quite good overall"</td><td class="mean">Solid, but room to improve.</td><td><span class="risk r-m">🟡 Medium</span></td></tr>
+          <tr><td class="say">"I'll bear it in mind"</td><td class="mean">I will not be doing this.</td><td><span class="risk r-m">🟡 Medium</span></td></tr>
+          <tr><td class="say">"Sorted"</td><td class="mean">Done, fixed, arranged.</td><td><span class="risk r-l">🟢 Safe</span></td></tr>
+          <tr><td class="say">"Cheers"</td><td class="mean">Thank you (also a toast when drinking).</td><td><span class="risk r-l">🟢 Safe</span></td></tr>
+          <tr><td class="say">"Lovely"</td><td class="mean">Fine — polite acknowledgement.</td><td><span class="risk r-l">🟢 Safe</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="two-col reveal">
+      <div class="ic ic-dark">
+        <h4>🌦 Weather as Social Glue</h4>
+        <p>Commenting on the weather is not a complaint — it is an invitation to connect. Always have a weather opinion ready. "Typical British weather" is a safe universal response.</p>
+      </div>
+      <div class="ic ic-dark">
+        <h4>🤝 Personal Space &amp; Touch</h4>
+        <p>British people maintain more physical distance than Indians. Handshakes on first meeting — no hugs. Do not stand too close. This is not unfriendliness — it is cultural norm.</p>
+      </div>
+    </div>
+    <div class="a-quote reveal">
+      <div class="a-quote-av">🎩</div>
+      <div class="a-quote-text">"My manager said my work was 'not bad.' I thought that was an insult. It was a compliment. Read the table above very carefully."</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SCENARIOS ═══════════════════════════════════════════ -->
+<section class="section" id="scenarios" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="sec-tag">Test Yourself</div>
+    <h2 class="sh">Three Scenarios — <em>What Would You Do?</em></h2>
+    <p class="lead">Cultural fluency is about reading the room and making the right call. Click your answer.</p>
+
+    <div class="sc-card reveal">
+      <div class="sc-hd"><div class="sc-num">1</div><h3>The Meeting Monologue</h3></div>
+      <div class="sc-body">
+        <div class="sc-sit">It's your first UK team meeting at 9:00 AM. Your manager hands you the agenda. Before she can open the meeting, you launch into a detailed 4-minute self-introduction — your career, India projects, your ideas for the UK team.</div>
+        <div id="opts1">
+          <button class="opt" onclick="ans(this,'A','B','rev1')"><span class="opt-l">A</span>Continue — it's important the team knows who he is</button>
+          <button class="opt" onclick="ans(this,'B','B','rev1')"><span class="opt-l">B</span>Wrap up in 30 seconds and follow the agenda</button>
+          <button class="opt" onclick="ans(this,'C','B','rev1')"><span class="opt-l">C</span>Stop mid-sentence and apologise profusely</button>
+        </div>
+        <div class="sc-rev" id="rev1"><strong>✅ Answer: B is correct</strong><p>UK meetings follow the agenda with precision. A 30-second intro is fine. A 4-minute monologue signals you prioritise your own narrative over the group's time. Option C creates unnecessary awkwardness. B shows cultural awareness.</p></div>
+      </div>
+    </div>
+
+    <div class="sc-card reveal">
+      <div class="sc-hd"><div class="sc-num">2</div><h3>The Timeline Feedback</h3></div>
+      <div class="sc-body">
+        <div class="sc-sit">In a meeting, your manager says: <em>"I wonder if the timeline is perhaps a little ambitious?"</em> What do you do?</div>
+        <div id="opts2">
+          <button class="opt" onclick="ans(this,'A','C','rev2')"><span class="opt-l">A</span>Say "Thank you for the feedback" and keep the same timeline</button>
+          <button class="opt" onclick="ans(this,'B','C','rev2')"><span class="opt-l">B</span>Ask whether the manager would like to see a revised version</button>
+          <button class="opt" onclick="ans(this,'C','C','rev2')"><span class="opt-l">C</span>Take it as a directive and revise the timeline immediately</button>
+        </div>
+        <div class="sc-rev" id="rev2"><strong>✅ Answer: C is correct</strong><p>"I wonder if the timeline is perhaps a little ambitious?" is NOT a question. It is a polite directive meaning "change the timeline." Option A completely misses the signal. Option B partially works but treating it as a direct instruction (C) is correct here.</p></div>
+      </div>
+    </div>
+
+    <div class="sc-card reveal">
+      <div class="sc-hd"><div class="sc-num">3</div><h3>The Pub Round</h3></div>
+      <div class="sc-body">
+        <div class="sc-sit">You are at The Crown with four colleagues. James bought the first round. Sarah bought the second. Glasses are getting low. Four people glance vaguely in your direction.</div>
+        <div id="opts3">
+          <button class="opt" onclick="ans(this,'A','B','rev3')"><span class="opt-l">A</span>Pretend not to notice.</button>
+          <button class="opt" onclick="ans(this,'B','B','rev3')"><span class="opt-l">B</span>Say "Same again, everyone?" and head to the bar.</button>
+          <button class="opt" onclick="ans(this,'C','B','rev3')"><span class="opt-l">C</span>Put £20 on the table to cover your share.</button>
+        </div>
+        <div class="sc-rev" id="rev3"><strong>✅ Answer: B is correct</strong><p>The round is a social contract. Stepping up shows you are a full member of the team. Cash on the table reads as transactional. Ignoring it is noticed — and quietly discussed. Always B.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EMERGENCY ══════════════════════════════════════════ -->
+<section class="section dark-band" id="emergency">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 10 · Emergency</div>
+    <h2 class="sh sh-w">Emergency <em>Contacts</em></h2>
+    <p class="lead lead-w">Save these before you do anything else on Day 1.</p>
+    <div class="em-grid reveal">
+      <div class="em-card" style="background:var(--red-l);border:2px solid var(--red)">
+        <div class="em-num" style="color:var(--red)">999</div>
+        <div class="em-lbl" style="color:var(--red)">Police · Fire · Ambulance</div>
+        <div class="em-sub" style="color:var(--red)">Emergency only</div>
+      </div>
+      <div class="em-card" style="background:var(--teal-l);border:2px solid var(--teal-m)">
+        <div class="em-num" style="color:var(--teal-d)">111</div>
+        <div class="em-lbl" style="color:var(--teal-d)">NHS Non-Emergency Medical</div>
+        <div class="em-sub">Free, 24/7</div>
+      </div>
+      <div class="em-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(0,200,200,.2)">
+        <div class="em-num" style="color:var(--gold)">101</div>
+        <div class="em-lbl" style="color:#fff">Police Non-Emergency</div>
+        <div class="em-sub">Theft, lost items</div>
+      </div>
+      <div class="em-card" style="background:var(--gold-l);border:2px solid var(--gold)">
+        <div class="em-num" style="color:var(--gold);font-size:28px">116 123</div>
+        <div class="em-lbl" style="color:var(--teal-d)">Samaritans Mental Health</div>
+        <div class="em-sub" style="color:var(--muted)">24hr, free</div>
+      </div>
+    </div>
+    <div class="tip-list reveal" style="background:rgba(255,255,255,.05)">
+      <h4 style="color:var(--teal-m)">HR &amp; Embassy Support</h4>
+      <div class="tip-item" style="color:rgba(255,255,255,.7);border-color:rgba(0,200,200,.1)">📞 Cipla HR Business Partner — first call for any emergency abroad — get this number before you travel</div>
+      <div class="tip-item" style="color:rgba(255,255,255,.7);border-color:rgba(0,200,200,.1)">🌍 Cipla Global Mobility — visa, accommodation and tax support</div>
+      <div class="tip-item" style="color:rgba(255,255,255,.7);border-color:rgba(0,200,200,.1)">🧠 EAP Programme — mental health and counselling — 24/7, confidential</div>
+      <div class="tip-item" style="color:rgba(255,255,255,.7);border-color:rgba(0,200,200,.1)">🏛️ Indian High Commission London → +44 20 7836 8484</div>
+      <div class="tip-item" style="color:rgba(255,255,255,.7);border-color:rgba(0,200,200,.1)">🏛️ Indian Consulate Birmingham → +44 121 212 2400</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DOS & DON'TS ════════════════════════════════════════ -->
+<section class="section" id="rules" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="sec-tag">Section 11 · Golden Rules</div>
+    <h2 class="sh">The UK <em>Golden Rules</em></h2>
+    <p class="lead">The most important things to remember. Print this page. Stick it on your fridge.</p>
+    <div class="dd-wrap reveal">
+      <div class="dd-col">
+        <div class="dd-hd do-hd">✅ DO</div>
+        <div class="dd-item do-item">Queue — always join the end, never jump</div>
+        <div class="dd-item do-item">Stand on the right on escalators</div>
+        <div class="dd-item do-item">Use Uber or Tube — never unmarked taxis</div>
+        <div class="dd-item do-item">Get an Oyster card on Day 1</div>
+        <div class="dd-item do-item">Attend after-work socials even if you don't drink</div>
+        <div class="dd-item do-item">Read meeting agendas in advance</div>
+        <div class="dd-item do-item">Register with a GP if your stay is 4+ weeks</div>
+        <div class="dd-item do-item">Save 999 and HR contact on arrival</div>
+        <div class="dd-item do-item">Arrive to meetings 2–3 minutes early</div>
+        <div class="dd-item do-item">Bring a 3-month supply of regular medications</div>
+      </div>
+      <div class="dd-col">
+        <div class="dd-hd dn-hd">❌ DON'T</div>
+        <div class="dd-item dn-item">Interrupt in meetings — wait for a natural pause</div>
+        <div class="dd-item dn-item">Take "quite interesting" as a compliment</div>
+        <div class="dd-item dn-item">Discuss religion or politics at work</div>
+        <div class="dd-item dn-item">Leave dishes in the office kitchen unwashed</div>
+        <div class="dd-item dn-item">Stand on the left side of escalators</div>
+        <div class="dd-item dn-item">Skip the pub invite — it matters for relationships</div>
+        <div class="dd-item dn-item">Tip at the pub bar — not expected or needed</div>
+        <div class="dd-item dn-item">Leave a restaurant without checking if service is added</div>
+        <div class="dd-item dn-item">Use unmarked street taxis — ever</div>
+        <div class="dd-item dn-item">Run out of regular medications</div>
+      </div>
+    </div>
+    <div class="gold-box reveal">
+      <div class="gold-box-icon">💾</div>
+      <p><strong>Before you do anything else on Day 1:</strong> Save 999 and your Cipla HR contact in your phone. Register your Oyster card. Download Uber and Citymapper. Everything else can wait.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CLOSING ════════════════════════════════════════════ -->
+<section id="closing">
+  <div class="close-inner">
+    <div class="hero-flag" style="font-size:52px;margin-bottom:20px">🇬🇧</div>
+    <p class="big-q">"You are going to be great. Just remember — <strong>stand on the right, queue properly,</strong> and always, always check your bill."</p>
+    <p class="meta">Cipla ALIVE Internship FY26 · EMEU Onboarding Series · For Internal Use Only</p>
+  </div>
+</section>
+
+<script>
+/* progress bar */
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+});
+
+/* scroll reveal */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .surp-item').forEach(el => obs.observe(el));
+
+/* staggered surprises */
+document.querySelectorAll('.surp-item').forEach((el, i) => {
+  el.style.transitionDelay = (i * 0.08) + 's';
+});
+
+/* scenario answer checker */
+function ans(btn, chosen, correct, revId) {
+  const wrap = btn.parentElement;
+  if (wrap.dataset.done) return;
+  wrap.dataset.done = '1';
+  wrap.querySelectorAll('.opt').forEach(b => {
+    const l = b.querySelector('.opt-l').textContent;
+    if (l === correct) b.classList.add('ok');
+    else if (l === chosen && chosen !== correct) b.classList.add('no');
+    b.style.cursor = 'default';
+  });
+  document.getElementById(revId).classList.add('show');
+}
+
+/* ─── Mascot section tips ────────────────────────────────── */
+const tips = {
+  snapshot: "67 million people, four nations, and a national obsession with weather that is — genuinely — a social lubricant, not small talk.",
+  transport: "I took an unmarked cab from Heathrow on Day 1. Never again. Use Uber or the Tube. Always.",
+  work: "My manager said my presentation was 'quite good.' I found out two weeks later that meant he wanted major changes. British understatement is a second language — learn it.",
+  dining: "I ordered a round of drinks and then my colleagues ordered rounds for me all evening. I now understand why it is called 'getting your round in.'",
+  cost: "London is expensive. But the menú del día equivalent here is Pret a Manger — a sandwich, snack and coffee for about £7. Use it.",
+  daily: "The Boots Advantage Card will save you real money. Sign up on Day 1. The loyalty points add up quickly.",
+  health: "Register with a GP in your first week — not when you are ill. The NHS is extraordinary but the queue to register takes time.",
+  customs: "When a British person says 'with the greatest respect' — they mean the opposite of respect. This is not sarcasm. It is the British communication system.",
+  emergency: "999 for emergencies. 111 for medical advice that is not an emergency. Two numbers. Know them both.",
+  rules: "Queue properly. Stand on the right on escalators. Say sorry when someone bumps into you. These three rules will make you invisible as a foreigner — in the best possible way.",
+};
+const bubble = document.getElementById('mascotBubble');
+const mascotText = document.getElementById('mascotText');
+let curSec = '';
+const secObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting && tips[e.target.id] && curSec !== e.target.id) {
+      curSec = e.target.id;
+      bubble.classList.remove('show');
+      setTimeout(() => { mascotText.textContent = tips[e.target.id]; bubble.classList.add('show'); }, 350);
+    }
+  });
+}, { threshold: 0.3 });
+Object.keys(tips).forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+
+/* ─── Housing tab switcher ───────────────────────────────── */
+function switchTab(tabId, group) {
+  document.querySelectorAll(`[id^="tab-"][id$="-${group}"]`).forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`tab-${tabId}-${group}`).classList.add('active');
+  event.target.classList.add('active');
+}
+
+</script>
+</body>
+</html>
