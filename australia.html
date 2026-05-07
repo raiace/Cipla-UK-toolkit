@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cipla | Australia Cultural Readiness Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+:root{
+  --green:#1B5E20;--green-d:#0A3D0E;--green-m:#2E7D32;--green-l:#E8F5E9;--green-p:#F1FAF1;
+  --gold:#F9A825;--gold-l:#FFFDE7;--gold-d:#F57F17;--gold-dk:#E65100;
+  --ocean:#01579B;--ocean-m:#0277BD;--ocean-l:#E1F5FE;
+  --amber:#E65100;--amber-l:#FBE9E7;
+  --cream:#FAFFF5;--cream-d:#F0FAF2;--ink:#212121;--muted:#4A5A4A;
+  --border:#C8E6C9;--white:#FFFFFF;
+  --serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif
+}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x:hidden;line-height:1.6}
+
+/* NAV */
+#topnav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,61,14,0.97);backdrop-filter:blur(14px);height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;border-bottom:2px solid rgba(249,168,37,0.3)}
+.nav-brand{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+.nav-links{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.nav-links a{font-size:11px;color:rgba(255,255,255,0.5);text-decoration:none;padding:5px 11px;border-radius:20px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(249,168,37,0.25)}
+.btn-back-hub{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.72);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);padding:5px 13px;border-radius:20px;cursor:pointer;transition:all .2s;text-decoration:none;margin-right:6px}
+.btn-back-hub:hover{background:rgba(249,168,37,0.3);color:#fff;border-color:var(--gold)}
+.btn-back-hub svg{width:12px;height:12px}
+#progress-bar{position:absolute;bottom:0;left:0;height:3px;background:var(--gold);width:0;transition:width .1s}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 24px 64px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 40% 40%,#0D4F1A 0%,#062B0A 50%,#010F03 100%)}
+#hero::before{content:'';position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(249,168,37,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(249,168,37,.04) 1px,transparent 1px);background-size:52px 52px}
+/* Wattle botanical SVG accent */
+.wattle-accent{position:absolute;right:0;top:0;width:320px;height:100%;opacity:0.06;z-index:0;pointer-events:none}
+.dot-field{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.gd{position:absolute;border-radius:50%;animation:floatDot linear infinite}
+@keyframes floatDot{0%{transform:translateY(0);opacity:0}10%{opacity:1}90%{opacity:.45}100%{transform:translateY(-100vh);opacity:0}}
+/* Reversed seasons warning strip */
+.season-strip{position:absolute;bottom:0;left:0;right:0;background:rgba(230,81,0,0.85);backdrop-filter:blur(4px);padding:8px 28px;z-index:3;display:flex;align-items:center;justify-content:center;gap:10px;font-size:0.78rem;font-weight:600;color:#fff;letter-spacing:0.04em}
+.season-strip span{background:rgba(255,255,255,0.15);padding:3px 10px;border-radius:20px}
+.hero-inner{position:relative;z-index:1;max-width:740px}
+.hero-badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:3px;color:var(--gold);text-transform:uppercase;border:1px solid rgba(249,168,37,.4);padding:7px 20px;border-radius:20px;margin-bottom:32px}
+.hero-flag{font-size:76px;display:block;margin-bottom:20px;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 8px 20px rgba(0,0,0,.45))}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero-h1{font-family:var(--serif);font-size:clamp(2.8rem,6vw,5rem);font-weight:700;color:#fff;line-height:1.05;letter-spacing:-0.02em;margin-bottom:8px}
+.hero-h1 em{color:var(--gold);font-style:italic}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.7);max-width:560px;margin:0 auto 36px;line-height:1.75}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--green-d);font-weight:700;font-size:0.95rem;letter-spacing:0.04em;padding:14px 32px;border-radius:40px;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px rgba(249,168,37,.4)}
+.hero-cta:hover{background:#FFD54F;transform:translateY(-2px);box-shadow:0 8px 28px rgba(249,168,37,.5)}
+
+/* MASCOT */
+.mascot-wrap{position:fixed;bottom:24px;right:24px;z-index:100;display:flex;align-items:flex-end;gap:10px;pointer-events:none}
+.mascot-bubble{background:#fff;border-radius:14px 14px 4px 14px;border:2px solid var(--gold);padding:12px 16px;max-width:240px;font-size:0.78rem;line-height:1.5;color:var(--ink);box-shadow:0 4px 20px rgba(0,0,0,.14);opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s;pointer-events:none}
+.mascot-bubble.show{opacity:1;transform:translateY(0)}
+.mascot-bubble strong{color:var(--green)}
+.mascot-figure{font-size:2.8rem;line-height:1;animation:mascotBob 2s ease-in-out infinite;filter:drop-shadow(0 2px 6px rgba(0,0,0,.2))}
+@keyframes mascotBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+/* SECTIONS */
+.section{padding:96px 28px}
+.section-inner{max-width:900px;margin:0 auto}
+.dark-band{background:var(--green-d)}
+.mid-band{background:var(--green-m)}
+.ocean-band{background:linear-gradient(135deg,#01305B 0%,#011A35 100%)}
+.amber-band{background:linear-gradient(135deg,#7A2900 0%,#3A1200 100%)}
+.sec-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--green);margin-bottom:16px}
+.sec-tag::before{content:'';width:24px;height:2px;background:var(--gold)}
+.sh{font-family:var(--serif);font-size:clamp(1.9rem,4vw,3rem);font-weight:700;color:var(--ink);letter-spacing:-0.02em;line-height:1.15;margin-bottom:14px}
+.sh em{color:var(--green);font-style:italic}
+.sh-w{color:#fff}.sh-w em{color:var(--gold)}
+.lead{font-size:1.05rem;color:var(--muted);line-height:1.75;margin-bottom:40px;max-width:640px}
+.lead-w{color:rgba(255,255,255,.72)}
+
+/* ALERTS */
+.alert-reversed{background:linear-gradient(135deg,var(--amber),#BF360C);border-radius:12px;padding:18px 24px;display:flex;align-items:center;gap:14px;margin-bottom:32px;box-shadow:0 4px 16px rgba(230,81,0,.3)}
+.alert-reversed .ar-icon{font-size:1.8rem;flex-shrink:0}
+.alert-reversed p{font-size:0.88rem;color:#fff;line-height:1.6;font-weight:500}
+.alert-000{background:linear-gradient(135deg,#B71C1C,#7B1212);border-radius:12px;padding:18px 24px;display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.alert-000 .num{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--gold);flex-shrink:0;line-height:1}
+.alert-000 p{font-size:0.88rem;color:#fff;line-height:1.6}
+.uv-box{background:linear-gradient(135deg,#E65100,#BF360C);border-radius:10px;padding:16px 20px;display:flex;gap:12px;align-items:flex-start;margin:20px 0}
+.uv-box .uv-icon{font-size:1.4rem;flex-shrink:0}
+.uv-box p{font-size:0.86rem;color:#fff;line-height:1.6}
+.uv-box strong{color:var(--gold)}
+
+/* STAT CARDS */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:44px}
+.stat-card{background:rgba(255,255,255,.07);border:1px solid rgba(249,168,37,.25);border-radius:12px;padding:24px;text-align:center;cursor:pointer;transition:all .25s;opacity:0;transform:translateY(20px)}
+.stat-card.reveal.vis{opacity:1;transform:none}
+.stat-card:hover{background:rgba(249,168,37,.12);border-color:var(--gold);transform:translateY(-3px)}
+.stat-num{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--gold);display:block;margin-bottom:6px}
+.stat-label{font-size:0.8rem;color:rgba(255,255,255,.62);letter-spacing:0.04em}
+.stat-detail{font-size:0.75rem;color:rgba(255,255,255,.4);margin-top:8px;line-height:1.4;display:none}
+.stat-card.open .stat-detail{display:block}
+.stat-hint{font-size:11px;color:rgba(255,255,255,.28);text-align:center;margin-bottom:24px;font-style:italic}
+
+/* TABLES */
+.kf-table{width:100%;border-collapse:collapse;border-radius:10px;overflow:hidden;margin-top:24px}
+.kf-table th{background:rgba(249,168,37,.13);color:var(--gold);font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:12px 16px;text-align:left}
+.kf-table td{padding:12px 16px;font-size:0.88rem;color:rgba(255,255,255,.74);border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top}
+.kf-table td:first-child{font-weight:600;color:rgba(255,255,255,.92);width:34%}
+.kf-table tr:last-child td{border:none}
+.kf-table tr:hover td{background:rgba(255,255,255,.03)}
+.kf-table .warn-row td{color:rgba(255,220,100,.9)!important}
+.kf-table .warn-row td:first-child{color:var(--gold)!important}
+
+.tr-table{width:100%;border-collapse:collapse;border-radius:10px;overflow:hidden;margin-bottom:28px}
+.tr-table th{background:var(--green-d);color:var(--gold);font-size:0.75rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:12px 16px;text-align:left}
+.tr-table td{padding:12px 16px;font-size:0.85rem;color:var(--muted);border-bottom:1px solid var(--border);vertical-align:middle}
+.tr-table td:first-child{font-weight:600;color:var(--ink)}
+.tr-table tr:hover td{background:var(--green-p)}
+.tr-rec{display:inline-block;font-size:0.7rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.04em}
+.rec-best{background:#FFFDE7;color:#4A3000;border:2px solid var(--gold)}
+.rec-yes{background:var(--green-l);color:var(--green);border:1px solid #A5D6A7}
+.rec-ok{background:var(--ocean-l);color:var(--ocean);border:1px solid #81D4FA}
+.rec-warn{background:var(--amber-l);color:var(--amber);border:1px solid #FFAB91}
+
+.cost-table{width:100%;border-collapse:collapse;border-radius:10px;overflow:hidden;margin-bottom:28px}
+.cost-table th{background:var(--green-d);color:var(--gold);font-size:0.73rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:12px 16px;text-align:left}
+.cost-table td{padding:12px 16px;font-size:0.85rem;color:var(--muted);border-bottom:1px solid var(--border);vertical-align:top}
+.cost-table td:first-child{font-weight:600;color:var(--ink)}
+.cost-table td:nth-child(2){font-weight:700;color:var(--green);white-space:nowrap}
+.cost-table tr.total-row td{background:var(--green-l);font-weight:700;color:var(--green-d)}
+.cost-table tr:hover td{background:var(--green-p)}
+
+.din-table{width:100%;border-collapse:collapse;border-radius:10px;overflow:hidden}
+.din-table th{background:var(--green-d);color:var(--gold);font-size:0.75rem;font-weight:600;letter-spacing:0.07em;text-transform:uppercase;padding:12px 16px;text-align:left}
+.din-table td{padding:12px 16px;font-size:0.86rem;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top}
+.din-table td:first-child{font-weight:600;color:var(--gold)}
+.din-table tr:hover td{background:rgba(255,255,255,.03)}
+.din-table tr:last-child td{border:none}
+
+/* TRANSIT CARDS GRID */
+.transit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:24px 0}
+.transit-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:16px;transition:all .2s}
+.transit-card:hover{background:rgba(249,168,37,.12);border-color:var(--gold)}
+.transit-city{font-size:0.85rem;font-weight:700;color:var(--gold);margin-bottom:4px}
+.transit-name{font-size:0.82rem;color:#fff;font-weight:600;margin-bottom:4px}
+.transit-where{font-size:0.74rem;color:rgba(255,255,255,.5);line-height:1.4}
+
+/* COFFEE GUIDE */
+.coffee-guide{margin-bottom:32px}
+.coffee-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px}
+.coffee-card{border-radius:10px;padding:16px 18px;cursor:pointer;transition:all .25s;border:2px solid transparent;position:relative;overflow:hidden}
+.coffee-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .2s}
+.coffee-card:hover{transform:translateY(-2px)}
+.coffee-card.flat-white{background:linear-gradient(135deg,#4E342E,#3E2723);border-color:#795548}
+.coffee-card.flat-white:hover{border-color:var(--gold)}
+.coffee-card.long-black{background:linear-gradient(135deg,#1A1A1A,#2C1810);border-color:#424242}
+.coffee-card.magic{background:linear-gradient(135deg,#1A237E,#0D1654);border-color:#3949AB}
+.coffee-card.latte{background:linear-gradient(135deg,#5D4037,#4E342E);border-color:#8D6E63}
+.coffee-card.other{background:linear-gradient(135deg,#2E7D32,#1B5E20);border-color:#4CAF50}
+.coffee-label{font-size:0.82rem;font-weight:700;color:#fff;margin-bottom:4px}
+.coffee-desc{font-size:0.74rem;color:rgba(255,255,255,.65);line-height:1.4}
+.coffee-badge{display:inline-block;font-size:0.62rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px;border-radius:20px;margin-top:6px}
+.badge-must{background:var(--gold);color:var(--green-d)}
+.badge-mel{background:var(--ocean);color:#fff}
+.badge-alt{background:rgba(255,255,255,.15);color:rgba(255,255,255,.8)}
+.coffee-detail{max-height:0;overflow:hidden;transition:max-height .3s ease;font-size:0.75rem;color:rgba(255,255,255,.55);line-height:1.5;margin-top:0}
+.coffee-card.open .coffee-detail{max-height:80px;margin-top:8px}
+
+/* CULTURE CARDS */
+.culture-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin-bottom:32px}
+.culture-card{background:#fff;border-radius:14px;padding:28px;border-top:4px solid var(--green);box-shadow:0 3px 16px rgba(0,0,0,.07);transition:transform .25s,box-shadow .25s}
+.culture-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.12)}
+.culture-num{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-d);margin-bottom:8px}
+.culture-title{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.3}
+.culture-body{font-size:0.86rem;color:var(--muted);line-height:1.65}
+
+/* TWO COL */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+.ic{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid var(--border)}
+.ic h4{font-size:0.9rem;font-weight:600;color:var(--green);margin-bottom:12px}
+.ic ul{list-style:none}
+.ic ul li{font-size:0.86rem;color:var(--muted);padding:5px 0;border-bottom:1px solid #f0f0f0;line-height:1.5}
+.ic ul li:last-child{border:none}
+.ic ul li::before{content:'→ ';color:var(--gold-d);font-weight:700}
+.ic p{font-size:0.86rem;color:var(--muted);line-height:1.65}
+.ic-dark{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+.ic-dark h4{color:var(--gold)}
+.ic-dark ul li{color:rgba(255,255,255,.72);border-color:rgba(255,255,255,.07)}
+.ic-dark ul li::before{color:var(--gold)}
+.ic-dark p{color:rgba(255,255,255,.72)}
+.ic-ocean{background:rgba(1,87,155,.12);border:1px solid rgba(1,87,155,.3)}
+.ic-ocean h4{color:#81D4FA}
+.ic-ocean ul li{color:rgba(255,255,255,.72);border-color:rgba(255,255,255,.07)}
+.ic-ocean ul li::before{color:#81D4FA}
+
+/* SEASON CARDS */
+.season-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:16px;margin-bottom:28px}
+.season-card{border-radius:12px;padding:22px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06)}
+.season-icon{font-size:2rem;display:block;margin-bottom:10px}
+.season-name{font-weight:700;font-size:0.85rem;color:var(--gold);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+.season-temp{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:8px}
+.season-detail{font-size:0.8rem;color:rgba(255,255,255,.58);line-height:1.5}
+
+/* APP GRID */
+.app-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:14px;margin-bottom:28px}
+.app-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:16px;text-align:center;transition:all .2s}
+.app-card:hover{background:rgba(249,168,37,.12);border-color:var(--gold);transform:translateY(-2px)}
+.app-icon{font-size:1.8rem;display:block;margin-bottom:8px}
+.app-name{font-size:0.82rem;font-weight:700;color:#fff;margin-bottom:4px}
+.app-desc{font-size:0.72rem;color:rgba(255,255,255,.52);line-height:1.4}
+
+/* WILDLIFE SECTION */
+.wildlife-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin:20px 0}
+.wl-card{border-radius:10px;padding:16px 18px;border-left:3px solid}
+.wl-card h5{font-size:0.85rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.wl-card p{font-size:0.78rem;line-height:1.5}
+.wl-danger{background:rgba(183,28,28,.12);border-color:#C62828;color:rgba(255,255,255,.8)}
+.wl-danger h5{color:#EF9A9A}
+.wl-caution{background:rgba(230,81,0,.12);border-color:var(--amber);color:rgba(255,255,255,.8)}
+.wl-caution h5{color:#FFCC80}
+.wl-sun{background:rgba(249,168,37,.12);border-color:var(--gold);color:rgba(255,255,255,.8)}
+.wl-sun h5{color:var(--gold)}
+
+/* SLANG TABLE */
+.slang-table{width:100%;border-collapse:collapse;border-radius:10px;overflow:hidden}
+.slang-table th{background:rgba(1,87,155,.8);color:#fff;font-size:0.73rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:12px 16px;text-align:left}
+.slang-table td{padding:11px 16px;font-size:0.86rem;border-bottom:1px solid rgba(255,255,255,.06)}
+.slang-table td:first-child{font-weight:700;color:var(--gold);font-family:var(--serif);font-style:italic;font-size:0.95rem}
+.slang-table td:nth-child(2){color:rgba(255,255,255,.75)}
+.slang-table td:nth-child(3){color:rgba(255,255,255,.45);font-size:0.78rem}
+.slang-table tr:hover td{background:rgba(255,255,255,.03)}
+.slang-table tr:last-child td{border:none}
+
+/* FLIP CARDS */
+.flip-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:28px}
+.fc{height:170px;perspective:1000px;cursor:pointer}
+.fc-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.4,0,.2,1);border-radius:12px}
+.fc.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-f,.fc-b{position:absolute;inset:0;border-radius:12px;padding:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;backface-visibility:hidden}
+.fc-f{background:var(--cream-d);border:2px solid var(--border)}
+.fc-b{background:var(--green-d);border:2px solid var(--gold);transform:rotateY(180deg)}
+.fc-f .fi{font-size:2.2rem;margin-bottom:10px}
+.fc-f p{font-size:0.82rem;color:var(--ink);font-weight:500;line-height:1.4}
+.fc-b p{font-size:0.82rem;color:rgba(255,255,255,.9);line-height:1.5}
+
+/* QUOTE */
+.a-quote{display:flex;gap:16px;align-items:flex-start;background:var(--green-l);border-left:4px solid var(--green);border-radius:0 12px 12px 0;padding:20px 24px;margin-top:32px}
+.a-quote-av{font-size:2rem;flex-shrink:0}
+.a-quote-text{font-size:0.9rem;color:var(--muted);line-height:1.65;font-style:italic}
+.a-quote-dark{background:rgba(255,255,255,.05);border-left-color:var(--gold)}
+.a-quote-dark .a-quote-text{color:rgba(255,255,255,.74)}
+
+/* TIP BOX */
+.tip-box{background:var(--gold-l);border:1px solid rgba(249,168,37,.4);border-left:4px solid var(--gold);border-radius:0 10px 10px 0;padding:16px 20px;margin:20px 0;font-size:0.86rem;color:var(--ink);line-height:1.65}
+.tip-box strong{color:var(--gold-dk)}
+.tip-box-dark{background:rgba(249,168,37,.09);color:rgba(255,255,255,.82)}
+.tip-box-dark strong{color:var(--gold)}
+.tip-box-ocean{background:rgba(1,87,155,.15);border-left-color:var(--ocean-m);color:rgba(255,255,255,.82)}
+.tip-box-ocean strong{color:#81D4FA}
+
+/* HOUSING TABS */
+.tab-row{display:flex;gap:8px;margin-bottom:24px}
+.tab-btn{padding:9px 22px;border-radius:30px;border:2px solid var(--border);background:transparent;font-family:var(--sans);font-size:0.85rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
+.tab-btn.active{background:var(--green);border-color:var(--green);color:#fff}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* EMERGENCY */
+.em-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:32px}
+.em-card{border-radius:12px;padding:24px;text-align:center}
+.em-num{font-family:var(--serif);font-size:2.4rem;font-weight:700;margin-bottom:4px}
+.em-lbl{font-size:0.85rem;font-weight:600;margin-bottom:4px}
+.em-sub{font-size:0.75rem;color:var(--muted)}
+.safety-list{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.safety-item{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.06);border-radius:10px;padding:14px 18px;border-left:3px solid var(--gold)}
+.safety-item .si-icon{font-size:1.2rem;flex-shrink:0}
+.safety-item p{font-size:0.85rem;color:rgba(255,255,255,.74);line-height:1.5}
+
+/* SCENARIO */
+.sc-card{background:#fff;border-radius:14px;padding:28px;margin-bottom:24px;border:1px solid var(--border);border-top:3px solid var(--green)}
+.sc-hd{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sc-num{width:36px;height:36px;border-radius:50%;background:var(--green);color:#fff;font-weight:700;font-size:0.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sc-hd h3{font-size:1.05rem;font-weight:700;color:var(--ink)}
+.sc-sit{font-size:0.88rem;color:var(--muted);line-height:1.7;margin-bottom:20px;background:var(--green-p);padding:14px;border-radius:8px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;margin-bottom:8px;background:var(--green-p);border:2px solid var(--border);border-radius:8px;padding:12px 16px;cursor:pointer;font-family:var(--sans);font-size:0.86rem;color:var(--ink);text-align:left;transition:all .2s}
+.opt:hover{border-color:var(--green);background:var(--green-l)}
+.opt.ok{background:var(--gold-l);border-color:var(--gold-d);color:#4A3000;font-weight:600}
+.opt.no{background:var(--amber-l);border-color:var(--amber);color:var(--amber)}
+.opt-l{font-weight:700;width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.78rem;flex-shrink:0}
+.sc-rev{display:none;background:var(--gold-l);border-radius:8px;padding:14px 18px;font-size:0.85rem;color:#4A3000;line-height:1.6;margin-top:10px}
+.sc-rev.show{display:block}
+.sc-rev strong{display:block;margin-bottom:6px}
+
+/* DOS & DONTS */
+.dd-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:32px}
+.dd-col{border-radius:12px;overflow:hidden}
+.dd-hd{padding:16px 20px;font-size:0.85rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase}
+.do-hd{background:var(--green);color:#fff}
+.dn-hd{background:var(--amber);color:#fff}
+.dd-item{padding:12px 20px;font-size:0.86rem;line-height:1.55;border-bottom:1px solid rgba(0,0,0,.06)}
+.do-item{background:#fff;color:var(--ink)}
+.do-item::before{content:'✅  '}
+.dn-item{background:var(--amber-l);color:var(--ink)}
+.dn-item::before{content:'❌  '}
+.dd-item:last-child{border:none}
+
+/* GOLD BOX */
+.gold-box{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,var(--gold),var(--gold-dk));border-radius:14px;padding:24px 28px;color:var(--green-d)}
+.gold-box-icon{font-size:2.4rem;flex-shrink:0}
+.gold-box p{font-size:0.92rem;line-height:1.65}
+
+/* CLOSING */
+#closing{background:radial-gradient(ellipse at 40% 40%,#0D4F1A 0%,#062B0A 60%,#010F03 100%);padding:100px 28px;text-align:center;position:relative;overflow:hidden}
+#closing::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(249,168,37,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(249,168,37,.04) 1px,transparent 1px);background-size:52px 52px}
+.close-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.big-q{font-family:var(--serif);font-size:clamp(1.25rem,3vw,1.9rem);color:#fff;line-height:1.6;margin-bottom:24px;font-style:italic}
+.meta{font-size:0.78rem;color:rgba(255,255,255,.28);letter-spacing:0.06em;text-transform:uppercase}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.vis{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .two-col,.dd-wrap{grid-template-columns:1fr}
+  .section{padding:72px 18px}
+  #hero{padding:90px 18px 64px}
+  .nav-links a{font-size:10px;padding:4px 8px}
+  .mascot-wrap{bottom:16px;right:12px}
+  .mascot-bubble{max-width:180px;font-size:0.72rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="topnav">
+  <div class="nav-brand">Cipla · Australia Guide</div>
+  <div class="nav-links">
+    <a class="btn-back-hub" onclick="if(window.parent&&window.parent.closeToolkit){window.parent.closeToolkit();}else{window.history.back();}" href="#">
+      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Hub
+    </a>
+    <a href="#snapshot">Snapshot</a>
+    <a href="#transport">Transport</a>
+    <a href="#work">Work</a>
+    <a href="#dining">Dining</a>
+    <a href="#cost">Cost</a>
+    <a href="#daily">Daily Life</a>
+    <a href="#housing">Housing</a>
+    <a href="#customs">Customs</a>
+    <a href="#emergency">Emergency</a>
+    <a href="#rules">Rules</a>
+  </div>
+  <div id="progress-bar"></div>
+</nav>
+
+<!-- MASCOT -->
+<div class="mascot-wrap">
+  <div class="mascot-bubble" id="mascotBubble"><strong>🏄 G'day:</strong> <span id="mascotText">No worries, mate. But do wear sunscreen. The sun here is not the same sun.</span></div>
+  <div class="mascot-figure">🏄</div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <!-- Wattle botanical SVG accent -->
+  <svg class="wattle-accent" viewBox="0 0 320 800" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g fill="none">
+      <ellipse cx="160" cy="120" rx="80" ry="40" stroke="#F9A825" stroke-width="1.2" opacity="0.8"/>
+      <ellipse cx="200" cy="200" rx="60" ry="30" stroke="#F9A825" stroke-width="1" opacity="0.6"/>
+      <line x1="160" y1="80" x2="160" y2="560" stroke="#2E7D32" stroke-width="1.5" opacity="0.7"/>
+      <line x1="160" y1="150" x2="240" y2="200" stroke="#2E7D32" stroke-width="1" opacity="0.5"/>
+      <line x1="160" y1="220" x2="80" y2="270" stroke="#2E7D32" stroke-width="1" opacity="0.5"/>
+      <line x1="160" y1="300" x2="250" y2="340" stroke="#2E7D32" stroke-width="1" opacity="0.5"/>
+      <circle cx="240" cy="195" r="18" fill="rgba(249,168,37,.25)" stroke="#F9A825" stroke-width="0.8"/>
+      <circle cx="240" cy="195" r="10" fill="rgba(249,168,37,.2)"/>
+      <circle cx="80" cy="270" r="15" fill="rgba(249,168,37,.2)" stroke="#F9A825" stroke-width="0.8"/>
+      <circle cx="250" cy="340" r="20" fill="rgba(249,168,37,.22)" stroke="#F9A825" stroke-width="0.8"/>
+      <circle cx="120" cy="400" r="12" fill="rgba(249,168,37,.15)" stroke="#F9A825" stroke-width="0.8"/>
+      <ellipse cx="160" cy="450" rx="70" ry="35" stroke="#F9A825" stroke-width="0.8" opacity="0.4"/>
+      <line x1="160" y1="420" x2="90" y2="480" stroke="#2E7D32" stroke-width="1" opacity="0.4"/>
+      <line x1="160" y1="420" x2="230" y2="490" stroke="#2E7D32" stroke-width="1" opacity="0.4"/>
+      <circle cx="90" cy="480" r="12" fill="rgba(249,168,37,.18)" stroke="#F9A825" stroke-width="0.7"/>
+      <circle cx="230" cy="490" r="16" fill="rgba(249,168,37,.18)" stroke="#F9A825" stroke-width="0.7"/>
+    </g>
+  </svg>
+
+  <div class="dot-field" id="dotField"></div>
+
+  <div class="hero-inner">
+    <div class="hero-badge">Cipla EMEU · Short-Term Assignment Guide</div>
+    <span class="hero-flag">🇦🇺</span>
+    <h1 class="hero-h1">G'day. Welcome to <em>Australia</em></h1>
+    <p class="hero-sub">Everything a Cipla professional needs before landing in Australia — work culture, flat whites, UV warnings, cashless payments, and everything in between.</p>
+    <a href="#snapshot" class="hero-cta">G'day — Let's Go →</a>
+  </div>
+
+  <div class="season-strip">
+    <span>⚠️ SEASONS ARE REVERSED</span>
+    June–August = Winter · December–February = Summer · Always check before you pack
+  </div>
+</section>
+
+<!-- ═══ SECTION 01 SNAPSHOT ═══════════════════════════════ -->
+<section class="section dark-band" id="snapshot">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 01 · Country Snapshot</div>
+    <h2 class="sh sh-w">Australia at a <em>Glance</em></h2>
+    <p class="lead lead-w">26 million people on the world's 6th largest landmass. Everyone lives near the coast. The emergency number is 000. The seasons are backwards. Start here.</p>
+
+    <div class="alert-000 reveal">
+      <div class="num">000</div>
+      <p><strong style="color:var(--gold)">Australia's emergency number is 000 — Triple Zero.</strong> NOT 999. NOT 112. Police, Ambulance, and Fire are ALL reached by calling 000. This is different from every other country in this toolkit. Save it before you read anything else on this page.</p>
+    </div>
+
+    <p class="stat-hint">👆 Click each card for more context</p>
+    <div class="stats-grid">
+      <div class="stat-card reveal" onclick="this.classList.toggle('open')"><span class="stat-num">26.5M</span><div class="stat-label">Population</div><div class="stat-detail">6th largest country by area. Most people live on the east coast. Sydney: 5.3M. Melbourne: 5.1M. Brisbane: 2.7M. Perth: 2.2M — 5 hours behind Sydney by plane.</div></div>
+      <div class="stat-card reveal" onclick="this.classList.toggle('open')" style="transition-delay:.1s"><span class="stat-num">A$ AUD</span><div class="stat-label">Currency</div><div class="stat-detail">1 AUD ≈ ₹56. Australia is almost entirely cashless — tap-and-pay is the norm everywhere. Opposite of Germany. Carry A$50 cash as backup only.</div></div>
+      <div class="stat-card reveal" onclick="this.classList.toggle('open')" style="transition-delay:.2s"><span class="stat-num">AEST+10</span><div class="stat-label">Time Zone</div><div class="stat-detail">Sydney/Melbourne: UTC+10 winter (AEST), UTC+11 summer (AEDT). IST is 4.5 hours behind Sydney. Perth is 2.5 hours behind Sydney — plan calls carefully across cities.</div></div>
+      <div class="stat-card reveal" onclick="this.classList.toggle('open')" style="transition-delay:.3s"><span class="stat-num">700K+</span><div class="stat-label">Indian residents</div><div class="stat-detail">One of Australia's largest immigrant communities. Over 300 languages spoken. 30% of the population was born overseas. Your background is unremarkable — and often positively interesting.</div></div>
+    </div>
+
+    <table class="kf-table reveal">
+      <thead><tr><th>Fact</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr class="warn-row"><td>⚠️ Seasons REVERSED</td><td>Summer: December–February. Winter: June–August. If you arrive in June, pack a warm jacket. Always confirm which season you are entering before you pack.</td></tr>
+        <tr><td>Emergency number</td><td>000 — Triple Zero. Police, Ambulance, Fire. Works from any mobile, even without credit or a SIM.</td></tr>
+        <tr><td>Driving side</td><td>LEFT — same as India and the UK. You will feel at home on the roads immediately.</td></tr>
+        <tr><td>Time from India</td><td>IST is 4.5 hours behind Sydney/Melbourne in summer (AEDT). Always use a world clock — daylight saving changes complicate this.</td></tr>
+        <tr><td>Exchange rate</td><td>1 AUD ≈ ₹56 · 1 INR ≈ 0.018 AUD — verify before travel</td></tr>
+        <tr><td>Visa for Indians</td><td>ETA (Electronic Travel Authority) or Business Visitor visa — apply online via IMMI. Can be granted in 24–48 hours. HR provides invitation letter.</td></tr>
+        <tr class="warn-row"><td>⚠️ UV Index</td><td>EXTREME — regularly 11–13. Skin damage in 11–15 minutes of unprotected exposure. SPF 50+ sunscreen is non-negotiable. This is medical guidance, not cultural.</td></tr>
+        <tr><td>Cashless society</td><td>Tap-and-pay (EFTPOS) used for virtually every transaction. Many businesses no longer accept cash. Opposite of Germany.</td></tr>
+        <tr><td>Tipping</td><td>Not a strong culture — 10% for excellent service is generous. Check for weekend surcharges before adding extra.</td></tr>
+        <tr><td>State holidays</td><td>Each Australian state has different public holiday dates. Check your specific city's calendar — a holiday in Victoria may not apply in NSW.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ SECTION 02 TRANSPORT ══════════════════════════════ -->
+<section class="section mid-band" id="transport">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 02 · Climate &amp; Getting Around</div>
+    <h2 class="sh sh-w">Weather, <em>UV &amp; Transport</em></h2>
+    <p class="lead lead-w">Remember: Australian seasons run opposite to India. June is winter. December is summer. The UV index is extreme year-round. Plan your wardrobe accordingly — and your sunscreen.</p>
+
+    <div class="uv-box reveal">
+      <div class="uv-icon">☀️</div>
+      <p><strong>UV Index warning:</strong> Australia's UV regularly reaches 11–13 (maximum scale). Skin damage occurs within 11–15 minutes of unprotected sun exposure. Apply SPF 50+ sunscreen when outdoors, wear a hat, and seek shade between 10am–3pm. Buy sunscreen at Chemist Warehouse on Day 1 — before you do anything else.</p>
+    </div>
+
+    <div class="season-grid reveal">
+      <div class="season-card"><span class="season-icon">🌊</span><div class="season-name">Summer · Dec–Feb</div><div class="season-temp">25°C – 40°C</div><div class="season-detail">Hot, humid, sunny. High UV. Sydney: 25–35°C with storms. Melbourne: can hit 40°C then drop 15°C in one hour. Extreme UV — stay protected.</div></div>
+      <div class="season-card"><span class="season-icon">🍂</span><div class="season-name">Autumn · Mar–May</div><div class="season-temp">18°C – 25°C</div><div class="season-detail">Mild and very pleasant. Best season to visit. Sydney is beautiful. Melbourne has park foliage. UV still significant in March–April.</div></div>
+      <div class="season-card"><span class="season-icon">🧥</span><div class="season-name">Winter · Jun–Aug</div><div class="season-temp">7°C – 18°C</div><div class="season-detail">Sydney: mild, 10–18°C. Melbourne: genuinely cold, 7–15°C — proper coat required. Buildings not always well-heated. Bring warm layers.</div></div>
+      <div class="season-card"><span class="season-icon">🌸</span><div class="season-name">Spring · Sep–Nov</div><div class="season-temp">12°C – 24°C</div><div class="season-detail">Melbourne: famously unpredictable — four seasons in one day. Sydney: warming nicely. Pack layers in both cities. UV increasing from October.</div></div>
+    </div>
+
+    <div class="tip-box tip-box-dark reveal"><strong>Melbourne's weather rule:</strong> Check BOM (Bureau of Meteorology app) every single morning. Four seasons in one day is not a saying — it is a forecast.</div>
+
+    <h3 style="color:var(--gold);font-family:var(--serif);font-size:1.3rem;margin:36px 0 16px">Getting Around</h3>
+    <div class="reveal" style="overflow-x:auto;border-radius:10px">
+      <table class="tr-table">
+        <thead><tr><th>Mode</th><th>Cost</th><th>Recommendation</th></tr></thead>
+        <tbody>
+          <tr><td>Uber</td><td>A$12–30 typical</td><td><span class="tr-rec rec-best">⭐ Recommended for all cities</span></td></tr>
+          <tr><td>Sydney Trains / Metro (Opal)</td><td>A$3–8/trip</td><td><span class="tr-rec rec-best">⭐ Best for Sydney CBD</span></td></tr>
+          <tr><td>Melbourne Trams / Metro (Myki)</td><td>A$3–6 / FREE in CBD</td><td><span class="tr-rec rec-best">⭐ Free within CBD zone!</span></td></tr>
+          <tr><td>Brisbane Translink (Go card)</td><td>A$3–6/trip</td><td><span class="tr-rec rec-yes">✅ Good for Brisbane CBD</span></td></tr>
+          <tr><td>Ferry (Sydney)</td><td>A$6–9 with Opal</td><td><span class="tr-rec rec-yes">✅ Iconic — Manly Ferry is a must</span></td></tr>
+          <tr><td>Bus (all cities)</td><td>A$3–5/trip</td><td><span class="tr-rec rec-ok">Good for last-mile connections</span></td></tr>
+          <tr><td>Airport train — Sydney</td><td>A$19 (Opal + surcharge)</td><td><span class="tr-rec rec-ok">Fast (13 min) but expensive</span></td></tr>
+          <tr><td>Skybus — Melbourne</td><td>A$22</td><td><span class="tr-rec rec-ok">Better value than airport train</span></td></tr>
+          <tr><td>Driving / car rental</td><td>Variable + A$20–60 parking</td><td><span class="tr-rec rec-warn">⚠️ City parking very expensive</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="color:var(--gold);font-family:var(--serif);font-size:1.3rem;margin:32px 0 16px">Transit Cards — Get These on Day 1</h3>
+    <div class="transit-grid reveal">
+      <div class="transit-card"><div class="transit-city">🏙️ Sydney</div><div class="transit-name">Opal Card</div><div class="transit-where">7-Eleven, newsagency, airport kiosks, station machines. Note: airport link has extra A$14–15 surcharge even with Opal.</div></div>
+      <div class="transit-card"><div class="transit-city">☕ Melbourne</div><div class="transit-name">Myki Card</div><div class="transit-where">7-Eleven stores, Melbourne Airport, station machines, online. CBD trams are free — no tap needed in zone.</div></div>
+      <div class="transit-card"><div class="transit-city">☀️ Brisbane</div><div class="transit-name">Go Card</div><div class="transit-where">TransLink retail outlets, 7-Eleven, convenience stores. Covers buses, trains, and ferries.</div></div>
+      <div class="transit-card"><div class="transit-city">🌊 Perth</div><div class="transit-name">SmartRider</div><div class="transit-where">Transperth InfoCentres and selected retail outlets.</div></div>
+    </div>
+
+    <div class="tip-box tip-box-ocean reveal"><strong>Sydney Opal weekly cap:</strong> After 8 paid journeys in a week, all further travel is free. Maximise public transport to hit the cap as early as possible.</div>
+
+    <div class="two-col reveal" style="margin-top:24px">
+      <div class="ic ic-dark"><h4>✈️ Inter-city flights</h4><ul><li>Sydney → Melbourne: 1h 30min — most competitive domestic route in the world</li><li>Sydney → Brisbane: 1h 20min — common business route</li><li>Sydney → Perth: 5h 10min — always fly, never drive</li><li>Book 3–4 weeks ahead on Qantas or Virgin for best prices</li><li>Prices double in the final 2 weeks before departure</li></ul></div>
+      <div class="ic ic-dark"><h4>📱 Essential apps — install before landing</h4><ul><li>Uber — primary ride-hailing across all Australian cities</li><li>BOM — official weather + UV index app (use daily)</li><li>Opal Travel / Myki / Translink — your city's transit app</li><li>Qantas / Virgin Australia — domestic flights and boarding passes</li><li>Revolut / Wise — fee-free ATM withdrawals (avoid A$3–5 bank fees)</li></ul></div>
+    </div>
+
+    <h3 style="color:var(--gold);font-family:var(--serif);font-size:1.3rem;margin:32px 0 16px">All Essential Apps</h3>
+    <div class="app-grid reveal">
+      <div class="app-card"><span class="app-icon">🚗</span><div class="app-name">Uber</div><div class="app-desc">Primary ride-hailing — reliable, safe, in all cities</div></div>
+      <div class="app-card"><span class="app-icon">☀️</span><div class="app-name">BOM</div><div class="app-desc">Official weather + UV index. Check daily — mandatory in Melbourne.</div></div>
+      <div class="app-card"><span class="app-icon">🚇</span><div class="app-name">Opal / Myki / Translink</div><div class="app-desc">City transit card management and real-time service info</div></div>
+      <div class="app-card"><span class="app-icon">✈️</span><div class="app-name">Qantas / Virgin</div><div class="app-desc">Domestic flights — frequent flyer points, boarding passes</div></div>
+      <div class="app-card"><span class="app-icon">🏥</span><div class="app-name">HotDoc / Healthengine</div><div class="app-desc">Book GP appointments online — same/next-day slots available</div></div>
+      <div class="app-card"><span class="app-icon">💊</span><div class="app-name">Chemist Warehouse</div><div class="app-desc">Australia's largest pharmacy — prescriptions, flu shots, SPF 50+</div></div>
+      <div class="app-card"><span class="app-icon">💸</span><div class="app-name">Revolut / Wise</div><div class="app-desc">Fee-free spending and ATM withdrawals — essential</div></div>
+      <div class="app-card"><span class="app-icon">🏠</span><div class="app-name">13SICK (13 74 25)</div><div class="app-desc">After-hours home GP visit — arrives within 1–2 hours</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 03 WORK ════════════════════════════════════ -->
+<section class="section" id="work" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="sec-tag">Section 03 · Work Culture</div>
+    <h2 class="sh">The Australian <em>Workplace</em></h2>
+    <p class="lead">Flat, egalitarian, direct with warmth, and powered by flat whites. The CEO is Dave. The intern is also Dave. Use first names immediately — it is not informal, it is Australian.</p>
+    <div class="culture-grid reveal">
+      <div class="culture-card"><div class="culture-num">01 · Core Value</div><div class="culture-title">Egalitarianism — everyone is equal at the table</div><div class="culture-body">From Day 1, you are on first-name terms with everyone — CEO, intern, manager, receptionist. Titles and formal address are almost never used internally. This is not a lack of respect. It is a deeply held Australian value that every person has equal worth regardless of rank. Your contribution is expected and welcome at all levels from the start.</div></div>
+      <div class="culture-card"><div class="culture-num">02 · Social Rule</div><div class="culture-title">Tall Poppy Syndrome — understatement is valued</div><div class="culture-body">Australians strongly disapprove of people who elevate themselves above others. Boasting about achievements, salary, status, or connections is penalised socially. The correct tone is understated and matter-of-fact. Self-deprecating humour is a social skill. Self-promotion is a social liability. Let your work speak — describe it factually and let others draw the conclusion.</div></div>
+      <div class="culture-card"><div class="culture-num">03 · Communication</div><div class="culture-title">Directness with warmth and humour</div><div class="culture-body">Australian communication is direct — if a colleague thinks your proposal needs work, they will say so clearly. But unlike German directness, it comes wrapped in warmth and often humour. Sarcasm and irony are widely used and are signs of comfort. A colleague who lightly teases you is signalling acceptance and liking. Engage warmly and do not take banter personally.</div></div>
+      <div class="culture-card"><div class="culture-num">04 · Balance Rule</div><div class="culture-title">Work-life balance is genuinely observed</div><div class="culture-body">Overtime is not celebrated — leaving on time is normal. After-hours emails are sent but responses are not expected until the next working day. Weekends are for family, outdoors, and sport. Working excessive hours consistently may cause colleagues to express concern rather than admiration. WFH 2–3 days per week is standard in most professional roles.</div></div>
+    </div>
+    <div class="two-col reveal">
+      <div class="ic"><h4>🇮🇳 Key differences for Indian professionals</h4><ul><li>First names immediately at all levels — 'Mr' or 'Ma'am' in an Aussie office would be jarring</li><li>Coffee is a professional ritual — knowing your order matters</li><li>Meetings are relatively informal — decisions can happen in the meeting itself</li><li>Humour is constant and professional — lightness is not unprofessionalism</li><li>Diversity is genuinely normalised — your background is unremarkable and often positively interesting</li></ul></div>
+      <div class="ic"><h4>📅 Working Hours</h4><ul><li>9AM–5PM or 8:30AM–5:30PM. Flexitime widely offered.</li><li>Lunch: 30–60 mins, 12:30–1:30PM — not a long social lunch, but coffee runs with colleagues are common</li><li>WFH: 2–3 days per week standard — confirm your team's expectation on Day 1</li><li>Annual leave: 4 weeks minimum by law — Australians take it fully</li><li>Christmas shutdown: Business slows dramatically Dec 23 – Jan 15</li></ul></div>
+    </div>
+    <div class="a-quote reveal"><div class="a-quote-av">🏄</div><div class="a-quote-text">"I called my manager 'Mr Williams' in my first email. He replied: 'Please call me Dave. Mr Williams is my father and he is retired.'"</div></div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 04 DINING ══════════════════════════════════ -->
+<section class="section dark-band" id="dining">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 04 · Dining &amp; Food Culture</div>
+    <h2 class="sh sh-w">Coffee, <em>Brunch &amp; the Barbie</em></h2>
+    <p class="lead lead-w">Australia has world-class, deeply serious coffee culture. Ordering a generic 'coffee' will get you a blank look. Know your order before Day 1 — it is a professional skill here.</p>
+
+    <!-- INTERACTIVE COFFEE GUIDE -->
+    <h3 style="color:var(--gold);font-family:var(--serif);font-size:1.3rem;margin:0 0 8px">☕ The Australian Coffee Order — Click to Learn</h3>
+    <p style="color:rgba(255,255,255,.6);font-size:0.84rem;margin-bottom:16px">Click each drink to find out what it is. Start with the flat white.</p>
+    <div class="coffee-grid reveal">
+      <div class="coffee-card flat-white" onclick="this.classList.toggle('open')">
+        <div class="coffee-label">Flat White</div>
+        <div class="coffee-desc">Double espresso + steamed milk, less foam than a latte</div>
+        <span class="coffee-badge badge-must">⭐ Start here</span>
+        <div class="coffee-detail">Australia's signature coffee. The most Australian order you can make. Ordering it signals cultural awareness. Costs around A$5.</div>
+      </div>
+      <div class="coffee-card long-black" onclick="this.classList.toggle('open')">
+        <div class="coffee-label">Long Black</div>
+        <div class="coffee-desc">Double espresso over hot water — stronger than Americano</div>
+        <span class="coffee-badge badge-alt">No milk</span>
+        <div class="coffee-detail">Cleaner and more concentrated than an Americano. Order this if you prefer black coffee — it's taken very seriously.</div>
+      </div>
+      <div class="coffee-card magic" onclick="this.classList.toggle('open')">
+        <div class="coffee-label">Magic</div>
+        <div class="coffee-desc">¾ flat white in a small cup — very concentrated</div>
+        <span class="coffee-badge badge-mel">Melbourne only</span>
+        <div class="coffee-detail">A Melbourne insider order. Asking for a Magic at a Melbourne café marks you immediately as someone who knows the culture. Not available in Sydney or Brisbane.</div>
+      </div>
+      <div class="coffee-card latte" onclick="this.classList.toggle('open')">
+        <div class="coffee-label">Latte</div>
+        <div class="coffee-desc">Espresso with steamed milk and a little foam</div>
+        <span class="coffee-badge badge-alt">Larger &amp; milkier</span>
+        <div class="coffee-detail">Larger and milkier than a flat white. Very common. Fine to order — just understand it's considered slightly less Australian than a flat white.</div>
+      </div>
+      <div class="coffee-card other" onclick="this.classList.toggle('open')">
+        <div class="coffee-label">Oat Flat White</div>
+        <div class="coffee-desc">Flat white with oat milk — very standard</div>
+        <span class="coffee-badge badge-alt">Milk alternatives</span>
+        <div class="coffee-detail">Say 'oat flat white' when ordering. Soy, almond, and macadamia options also widely available. Completely normal to request — Australia has excellent plant-based culture.</div>
+      </div>
+      <div class="coffee-card" style="background:linear-gradient(135deg,#4A1A1A,#2A0D0D);border:2px solid #7B4040" onclick="this.classList.toggle('open')">
+        <div class="coffee-label">Short Black</div>
+        <div class="coffee-desc">Single espresso shot — ordered by serious coffee drinkers</div>
+        <span class="coffee-badge badge-alt">Intense</span>
+        <div class="coffee-detail">The most concentrated standard order. Ordering this signals you are a genuine coffee person. Very small — usually 30ml.</div>
+      </div>
+    </div>
+    <div class="tip-box tip-box-dark reveal"><strong>☕ The professional rule:</strong> Order a flat white on your first day. It immediately signals cultural awareness. Order 'a coffee with milk' and your Australian colleague will spend 10 minutes kindly explaining the menu to you.</div>
+
+    <h3 style="color:var(--gold);font-family:var(--serif);font-size:1.3rem;margin:36px 0 16px">Dining Options</h3>
+    <div class="reveal" style="overflow-x:auto;border-radius:10px">
+      <table class="din-table">
+        <thead><tr><th>Type</th><th>Cost per person</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Café — daytime</td><td>A$15–28</td><td>Breakfast and brunch. Excellent quality. Where most professional social eating happens — brunch is a serious institution.</td></tr>
+          <tr><td>Food court / food hall</td><td>A$10–20</td><td>Very high quality in Australian CBD food courts — Asian, Indian, Lebanese, Mexican all widely available.</td></tr>
+          <tr><td>Pub meal (counter meal)</td><td>A$18–30</td><td>Australian pubs serve full meals. Great quality, relaxed atmosphere, very social. Excellent value.</td></tr>
+          <tr><td>Mid-range restaurant</td><td>A$40–70</td><td>Australian cuisine is internationally influenced and genuinely world-class. Best evening option for business dinners.</td></tr>
+          <tr><td>Public BBQ (parks)</td><td>Free</td><td>Electric BBQs available in most public parks and beaches. A genuine Australian social institution — community-owned and genuinely used.</td></tr>
+          <tr><td>BYO restaurant</td><td>Varies + corkage</td><td>Many Australian restaurants allow you to bring your own wine or beer. Saves 30–50% on the total bill. Ask before assuming.</td></tr>
+          <tr><td>Fine dining</td><td>A$100–250+</td><td>Australia has globally ranked restaurants. Attica (Melbourne), Quay and Bennelong (Sydney) are world-class.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two-col reveal" style="margin-top:24px">
+      <div class="ic ic-dark"><h4>🍖 The BBQ (Barbie)</h4><ul><li>Equivalent in social importance to Brazil's churrasco — how friendships are formed</li><li>If invited to a colleague's home BBQ: bring something (beer, wine, soft drink, or a salad)</li><li>Arriving empty-handed is noted</li><li>'Snag' = sausage. 'Throwing snags on the barbie' is the most Australian phrase you'll encounter in real life</li><li>Public BBQs in parks: free, electric, genuinely used — a great weekend activity</li></ul></div>
+      <div class="ic ic-dark"><h4>🥗 Vegetarian &amp; Indian options</h4><ul><li>Vegetarian/Vegan: Australia is outstanding — Melbourne has one of the world's best plant-based food scenes</li><li>Indian food: Harris Park/Parramatta (Sydney) = 'Little India'. Clayton &amp; Dandenong (Melbourne), Sunnybank (Brisbane)</li><li>Quality is very high — often better than what you'd expect at Indian restaurants elsewhere in this toolkit</li><li>Indian grocery stores: Very well-stocked in all major cities. Woolworths and Coles carry Indian staples.</li><li>Weekend surcharge: Check if 10–15% surcharge already added on Sundays before tipping on top</li></ul></div>
+    </div>
+    <div class="a-quote a-quote-dark reveal"><div class="a-quote-av">🏄</div><div class="a-quote-text">"Order a flat white. Learn it, live it. It is the secret handshake of Australian professional culture and it costs A$5."</div></div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 05 COST ════════════════════════════════════ -->
+<section class="section" id="cost" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="sec-tag">Section 05 · Cost of Living</div>
+    <h2 class="sh">Your Australia <em>Budget Guide</em></h2>
+    <p class="lead">Australia is one of the world's most expensive countries for housing — Sydney consistently ranks in the global top 5. Day-to-day living is expensive by Indian standards but comparable to major European cities.</p>
+    <div class="reveal" style="overflow-x:auto;border-radius:10px">
+      <table class="cost-table">
+        <thead><tr><th>Expense</th><th>Monthly Cost (A$)</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>Serviced apartment 1BR</td><td>A$3,500–7,000</td><td>Sydney CBD, North Sydney, Parramatta. Melbourne: CBD, Southbank, St Kilda. Bills usually included. Book 3–4 weeks ahead.</td></tr>
+          <tr><td>Private rental 1BR (1 month+)</td><td>A$2,200–4,500</td><td>Sydney among the world's most expensive. Melbourne slightly lower. Market very tight — start early with HR support.</td></tr>
+          <tr><td>Utilities (elec, water, internet)</td><td>A$150–250</td><td>Usually included in serviced apartments. NBN internet is fast and reliable. AC increases electricity costs in summer.</td></tr>
+          <tr><td>Groceries</td><td>A$400–600</td><td>Woolworths or Coles for standard. Aldi for budget — excellent quality at lower prices.</td></tr>
+          <tr><td>Lunch — café or food court</td><td>A$15–25 per meal</td><td">Food courts A$10–18 and very good quality. Best value for weekday lunches.</td></tr>
+          <tr><td>Dinner — moderate restaurant</td><td>A$45–80 per person</td><td>Per person with a drink. Weekend surcharges add 10–15% on Sundays.</td></tr>
+          <tr><td>Transport — Opal/Myki + Uber</td><td>A$150–350</td><td>Monthly public transport plus Uber for gaps. Melbourne CBD trams are free.</td></tr>
+          <tr><td>Mobile SIM</td><td>A$30–60</td><td>Telstra (best nationwide coverage), Optus, Vodafone. Unlimited data from A$35/month. eSIM available.</td></tr>
+          <tr><td>Health insurance</td><td>Covered by Cipla</td><td>Confirm insurer, policy number, and coverage scope with HR before departure. Indian visitors are NOT eligible for Medicare.</td></tr>
+          <tr class="total-row"><td>Total (single, comfortable)</td><td>A$4,500–7,000/month</td><td>Sydney or Melbourne estimate — varies significantly by lifestyle</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="two-col reveal" style="margin-top:28px">
+      <div class="ic"><h4>💡 Money-saving tips</h4><ul><li>Sign up for Woolworths Everyday Rewards and Coles Flybuys — weekly discounts and fuel savings</li><li>Aldi for groceries — 20–30% cheaper than Woolworths/Coles, excellent quality</li><li>Lunch in CBD food courts — A$10–18 for a full meal, much better value than restaurants</li><li>Sydney Opal weekly cap — after 8 trips, all further travel is free that week</li><li>Melbourne CBD free tram zone — no tap required within the CBD boundaries</li><li>Revolut or Wise — avoid A$3–5 bank fees per ATM withdrawal</li></ul></div>
+      <div class="ic"><h4>🇮🇳 vs 🇦🇺 Key differences</h4><ul><li>Housing: Genuinely shocking — Sydney rent costs more per week than many Indian monthly rents. Claim every expense from Cipla.</li><li>Groceries: 3–4x more than India but good quality</li><li>Transport: Public transport excellent value with Opal weekly cap and Melbourne free tram zone</li><li>Cashless: Opposite of Germany — never need cash except at farmers markets</li><li>Tipping: Not expected — very different from the US. Just round up if service was excellent.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 06 DAILY LIVING ════════════════════════════ -->
+<section class="section mid-band" id="daily">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 06 · Daily Living</div>
+    <h2 class="sh sh-w">Daily <em>Life</em> in Australia</h2>
+    <p class="lead lead-w">Australia is almost entirely cashless, genuinely open on Sundays, and has wildlife in suburban gardens. All three of these facts are equally important for Day 1.</p>
+
+    <div class="two-col reveal">
+      <div class="ic ic-dark"><h4>🛒 Groceries</h4><ul><li>Woolworths ('Woolies') and Coles — both everywhere, excellent quality, open 7am–midnight including Sundays</li><li>Aldi — outstanding quality at significantly lower prices (German-founded)</li><li>Harris Farm Markets (NSW), weekend farmers markets — excellent fresh produce</li><li>Indian/Asian groceries: Parramatta (Sydney), Clayton/Dandenong (Melbourne), Sunnybank (Brisbane) — very well-stocked</li><li>Online: Woolworths and Coles same-day delivery. DoorDash and Uber Eats also deliver groceries.</li><li>Sundays: Open — unlike Germany. Some 24-hour locations in major cities.</li></ul></div>
+      <div class="ic ic-dark"><h4>📱 Cashless Living</h4><ul><li>Tap-and-pay (EFTPOS/contactless) used for virtually every transaction — cafés, taxis, supermarkets, parking</li><li>Apple Pay / Google Pay: Very widely accepted — many Australians never carry physical cash</li><li>Some businesses are legally permitted to refuse cash — always carry a card</li><li>Osko (NPP): Near-instant bank transfers between Australian accounts — for splitting bills</li><li>Carry A$50 cash only for rare farmers markets or very small rural shops</li></ul></div>
+      <div class="ic ic-dark"><h4>📱 SIM &amp; Utilities</h4><ul><li>SIM: Buy Day 1 at Woolworths, Coles, 7-Eleven, or Telstra/Optus/Vodafone store — bring passport</li><li>Telstra: Best nationwide coverage — essential if you plan any travel outside major city centres</li><li>eSIM: Available from Telstra and Optus — activate at airport if supported</li><li>Broadband: Usually included in serviced apartments. Australia's NBN provides fast fibre.</li></ul></div>
+      <div class="ic ic-dark"><h4>♻️ Recycling</h4><ul><li>Two main bins: Yellow-lidded (recycling — plastics, paper, glass, metal). Red/dark (general waste).</li><li>Much simpler than Germany's six-bin system</li><li>Container deposit: In most states, eligible bottles and cans worth A$0.10 each — return to Tomra machines at supermarkets</li><li>Soft plastics: Separate collection points at Woolworths and Coles — do not put in yellow bin</li></ul></div>
+    </div>
+
+    <h3 style="color:var(--gold);font-family:var(--serif);font-size:1.3rem;margin:32px 0 8px">🦘 Wildlife Awareness — This Is Real &amp; Practical</h3>
+    <p style="color:rgba(255,255,255,.65);font-size:0.88rem;margin-bottom:16px">The risk is manageable with basic awareness. The most common encounters are in suburban gardens, coastal areas, and parks — not just the outback.</p>
+    <div class="wildlife-grid reveal">
+      <div class="wl-card wl-danger"><h5>🕷️ Redback Spider</h5><p>Common in gardens, garages, outdoor furniture. Red stripe on black. Do not reach into dark corners without looking. If bitten: call 000 immediately.</p></div>
+      <div class="wl-card wl-caution"><h5>🐍 Snakes</h5><p>Present in parks, bushland, and occasionally suburban gardens. If you see one: stand still or back away slowly. Never try to move or interact with it.</p></div>
+      <div class="wl-card wl-caution"><h5>🪼 Jellyfish</h5><p>Box jellyfish in northern waters (QLD, NT) are genuinely dangerous. Swim at patrolled beaches only in these regions. Standard caution in Sydney and Melbourne.</p></div>
+      <div class="wl-card wl-sun"><h5>🌊 Beach rips</h5><p>Rip currents cause more fatalities than all other wildlife combined. ALWAYS swim between the red and yellow flags. Outside the flags is a genuine risk even for strong swimmers.</p></div>
+      <div class="wl-card wl-sun"><h5>☀️ UV Radiation</h5><p>The most consistently dangerous thing in Australia. UV 11–13 in summer. Skin damage in 11 minutes. SPF 50+, hat, shade 10am–3pm. Medical, not optional.</p></div>
+    </div>
+
+    <p style="font-size:12px;color:rgba(255,255,255,.32);text-align:center;margin:32px 0 14px;font-style:italic">👆 Click each card for the correct behaviour</p>
+    <div class="flip-row reveal">
+      <div class="fc" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-f"><div class="fi">👋</div><p>A colleague asks 'How ya going?' in the corridor</p></div><div class="fc-b"><p>✅ 'Good thanks, you?' — this is a greeting, not a genuine enquiry into your wellbeing. Respond briefly and warmly, then move on.</p></div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-f"><div class="fi">🏖️</div><p>You want to swim at a Sydney beach on the weekend</p></div><div class="fc-b"><p>✅ Only swim between the red and yellow flags. These mark the lifeguard-patrolled, rip-current-safe zone. Outside them is a genuine safety risk.</p></div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-f"><div class="fi">🍖</div><p>A colleague invites you to a backyard BBQ on Saturday</p></div><div class="fc-b"><p>✅ Say yes, bring something (beer, soft drink, or a salad). Arrive roughly on time — Australian social events are far more punctual than Spanish or Brazilian ones.</p></div></div></div>
+      <div class="fc" onclick="this.classList.toggle('flipped')"><div class="fc-inner"><div class="fc-f"><div class="fi">🕷️</div><p>You find a spider in your apartment garage</p></div><div class="fc-b"><p>✅ Call the building manager instead of removing it yourself. This is the correct decision. Do not attempt to handle unknown spiders.</p></div></div></div>
+    </div>
+    <div class="a-quote a-quote-dark reveal"><div class="a-quote-av">🏄</div><div class="a-quote-text">"I found a redback spider in my apartment garage. I called the building manager instead of heroically removing it. This was the correct decision. So was calling the building manager."</div></div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 07 HOUSING ═════════════════════════════════ -->
+<section class="section" id="housing" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="sec-tag">Section 07 · Housing &amp; Healthcare</div>
+    <h2 class="sh">Where to <em>Live</em> &amp; the Yellow Warehouse</h2>
+    <p class="lead">Chemist Warehouse (bright yellow and red) is your pharmacy — buy SPF 50+ there before you leave the airport. Private health insurance from Cipla is essential — Indian visitors are not eligible for Medicare.</p>
+    <div class="tab-row">
+      <button class="tab-btn active" onclick="switchTab('short','housing')">Short Stay &lt;4 weeks</button>
+      <button class="tab-btn" onclick="switchTab('long','housing')">Long Stay 4 weeks–6 months</button>
+    </div>
+    <div id="tab-short-housing" class="tab-panel active reveal">
+      <div class="two-col">
+        <div class="ic"><h4>🏨 Best option: Serviced apartment</h4><ul><li>Quest Apartments, Meriton Suites, Citadines — reliable chains in Sydney and Melbourne</li><li>Sydney: CBD, Pyrmont, Darlinghurst, North Sydney — well-connected, safe</li><li>Melbourne: CBD, Southbank, Carlton, Fitzroy — central, excellent food &amp; coffee, good transit</li><li>Bills and utilities usually included</li></ul></div>
+        <div class="ic"><h4>🏩 Hotels</h4><ul><li>Marriott, Accor (Novotel, Ibis, Sofitel), and Crown Hotels — reliable in both cities</li><li>Airbnb: Stick to inner-city areas with verified Superhosts and recent reviews</li><li>Costs usually arranged by Cipla HR for short assignments</li></ul></div>
+      </div>
+    </div>
+    <div id="tab-long-housing" class="tab-panel reveal">
+      <div class="two-col">
+        <div class="ic"><h4>🏠 Private Rental</h4><ul><li>Sydney and Melbourne vacancy rates often below 1.5% — among the lowest in the world</li><li>Bond (deposit): 4 weeks rent lodged with state rental bond authority — returned at end of tenancy</li><li>References required — HR can provide a Cipla employment and support letter</li><li>Lease: 6–12 months standard. Short-term furnished leases exist at premium.</li></ul></div>
+        <div class="ic"><h4>💡 HR Global Mobility</h4><ul><li>Start housing search 6–8 weeks before arrival — do not leave this to the last week</li><li>Sydney and Melbourne rental markets are genuinely difficult — HR support is essential</li><li>Visa support, health insurance confirmation, and housing assistance</li><li>Contact well before departure — not on arrival week</li></ul></div>
+      </div>
+    </div>
+
+    <h3 style="font-family:var(--serif);font-size:1.2rem;color:var(--green);margin:36px 0 16px">Healthcare in Australia</h3>
+    <div class="two-col reveal">
+      <div class="ic"><h4>🏥 Private Insurance — Essential</h4><ul><li>Indian nationals on short-term business visas are typically NOT eligible for Medicare</li><li>Cipla provides private health insurance — confirm insurer, policy number, and coverage with HR before departure</li><li>Bulk billing GP: Some practices offer no out-of-pocket cost — confirm when booking via HotDoc</li><li>Specialists require a GP referral — book a GP first for any non-emergency concern</li><li>For genuine emergencies: All hospitals treat you regardless of insurance — go to Emergency Department (ED)</li><li>After-hours: Call 13SICK (13 74 25) — GP visits you at home within 1–2 hours</li></ul></div>
+      <div class="ic"><h4>💊 Chemist Warehouse — Your Pharmacy</h4><ul><li>Bright yellow and red branding — Australia's largest pharmacy chain, very affordable, everywhere</li><li>Also: Priceline, Terry White, and independent chemists in most suburbs</li><li>Buy SPF 50+ sunscreen here before you leave the airport — Day 1 purchase, non-negotiable</li><li>24-hour pharmacies available near most addresses — search online for nearest</li><li>Indian medicines: Bring 3-month supply — Australian brand names differ. Generic equivalents available but may not match exactly.</li></ul></div>
+    </div>
+    <div class="a-quote reveal"><div class="a-quote-av">🏄</div><div class="a-quote-text">"Confirm private health insurance details before you land. And buy SPF 50+ at Chemist Warehouse before you leave the airport. In that precise order."</div></div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 08 CUSTOMS ═════════════════════════════════ -->
+<section class="section ocean-band" id="customs">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 08 · Customs &amp; Culture</div>
+    <h2 class="sh sh-w">Social Customs, <em>Slang &amp; Sport</em></h2>
+    <p class="lead lead-w">When cricket comes up, mention the India-Australia series. It will make you three new friends before lunch is over.</p>
+    <div class="culture-grid reveal">
+      <div class="culture-card" style="border-top-color:var(--green)"><div class="culture-num" style="color:var(--green)">01 · Cultural Literacy</div><div class="culture-title">Acknowledgement of Country</div><div class="culture-body">You will frequently hear an 'Acknowledgement of Country' at the opening of professional meetings, conferences, and events — a brief statement recognising the Traditional Custodians of the land. Aboriginal and Torres Strait Islander peoples have lived here for over 60,000 years. When you hear one, listen respectfully. Understanding what it is and why it matters is essential cultural literacy for working in Australia.</div></div>
+      <div class="culture-card" style="border-top-color:var(--ocean-m)"><div class="culture-num" style="color:#81D4FA">02 · Identity</div><div class="culture-title">Outdoor and active culture</div><div class="culture-body">Australians define themselves significantly through outdoor life — beaches, national parks, coastal walks, sport, and fresh air. The beach is a weekly activity for many, not just a holiday destination. Asking about someone's weekend activity, their sport, or their favourite beach is an excellent conversation opener. Expressing curiosity about outdoor culture as a newcomer is immediately appreciated.</div></div>
+      <div class="culture-card" style="border-top-color:var(--gold)"><div class="culture-num" style="color:var(--gold-d)">03 · Community</div><div class="culture-title">Multicultural and genuinely welcoming</div><div class="culture-body">30% of Australia's population was born overseas. Major cities are genuinely multicultural in daily life. Your background, accent, and cultural perspective are unremarkable — and often positively interesting. Australians are genuinely curious about India, and most have some connection through food, colleagues, or neighbours. The Indian-Australian community is large, well-established, and very active.</div></div>
+    </div>
+
+    <h3 style="color:var(--gold);font-family:var(--serif);font-size:1.3rem;margin:36px 0 8px">Essential Aussie Slang</h3>
+    <p style="color:rgba(255,255,255,.5);font-size:0.85rem;margin-bottom:18px">Australians will love that you know any of these. Even one or two earns immediate warmth.</p>
+    <div class="reveal" style="overflow-x:auto;border-radius:10px">
+      <table class="slang-table">
+        <thead><tr><th>Slang</th><th>Meaning</th><th>In a sentence</th></tr></thead>
+        <tbody>
+          <tr><td>G'day</td><td>Hello / Good day</td><td>'G'day mate, how ya going?'</td></tr>
+          <tr><td>No worries</td><td>No problem / You're welcome</td><td>Used far more than 'you're welcome'</td></tr>
+          <tr><td>Mate</td><td>Friend / colleague (gender neutral)</td><td>Used for everyone — you are everyone's mate</td></tr>
+          <tr><td>Arvo</td><td>Afternoon</td><td>'See you this arvo'</td></tr>
+          <tr><td>Brekkie</td><td>Breakfast</td><td>'Heading out for brekkie'</td></tr>
+          <tr><td>How ya going?</td><td>How are you? (greeting, not real question)</td><td>Correct response: 'Good thanks, you?'</td></tr>
+          <tr><td>She'll be right</td><td>It will be fine, don't worry</td><td>Universal reassurance everything works out</td></tr>
+          <tr><td>Reckon</td><td>Think / believe</td><td>'I reckon it'll rain this arvo'</td></tr>
+          <tr><td>Footy</td><td>AFL in VIC/SA/WA, NRL in NSW/QLD</td><td>'Did you watch the footy?' — code depends on city</td></tr>
+          <tr><td>Servo</td><td>Petrol station / service station</td><td>'I'll grab water at the servo'</td></tr>
+          <tr><td>Bottle-o</td><td>Bottle shop / liquor store</td><td>'I'll stop at the bottle-o on the way'</td></tr>
+          <tr><td>Chockers</td><td>Very full / packed</td><td>'The café was chockers this morning'</td></tr>
+          <tr><td>Hard yakka</td><td>Hard work</td><td>'That was hard yakka'</td></tr>
+          <tr><td>Arvo sesh</td><td>Afternoon drinks session</td><td>'There's an arvo sesh after work'</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="two-col reveal" style="margin-top:24px">
+      <div class="ic ic-ocean"><h4>🏏 Sport — Essential Cultural Knowledge</h4><ul><li>Cricket: India-Australia rivalry is intense and good-natured — your cricket knowledge creates instant common ground</li><li>AFL: Dominant in Melbourne, Adelaide, Perth. Completely unique sport — attend a game once. AFL Grand Final in September = de facto public holiday in Melbourne.</li><li>NRL: Dominant in Sydney, Brisbane, Queensland — fast-paced, tribal fan following</li><li>Melbourne Cup (first Tuesday November): Horse race that 'stops the nation' — office sweepstakes nationwide. Participate if invited.</li><li>ANZAC Day (April 25): Australia's most solemn public holiday — dawn services, treat with genuine respect</li></ul></div>
+      <div class="ic ic-ocean"><h4>🇮🇳 Indian Community in Australia</h4><ul><li>700,000+ Indian-born residents — one of Australia's largest immigrant communities</li><li>High Commission of India, Canberra: +61-2-6273-3999</li><li>Consulate General of India, Sydney: +61-2-9223-9500</li><li>Consulate General of India, Melbourne: +61-3-9384-0141</li><li>Indian community hubs: Parramatta/Harris Park (Sydney), Clayton/Dandenong (Melbourne), Sunnybank (Brisbane)</li><li>Hindu temples: Sri Venkateswara Temple (Sydney), Shiva Vishnu Temple (Melbourne), ISKCON nationwide</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 09 SCENARIOS ═══════════════════════════════ -->
+<section class="section" id="scenarios" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="sec-tag">Test Yourself</div>
+    <h2 class="sh">Three Scenarios — <em>What Would You Do?</em></h2>
+    <p class="lead">Australia rewards warmth, egalitarianism, and knowing your coffee order. Click your answer.</p>
+    <div class="sc-card reveal">
+      <div class="sc-hd"><div class="sc-num">1</div><h3>The Title Problem</h3></div>
+      <div class="sc-body">
+        <div class="sc-sit">It's your first week in the Sydney office. You email the Head of Commercial — a senior leader who has been with Cipla Australia for 15 years — and address her as 'Dear Ms Johnson'. She replies with 'Hi! Please call me Sarah.' How do you adjust?</div>
+        <div id="opts1">
+          <button class="opt" onclick="ans(this,'A','B','rev1')"><span class="opt-l">A</span>Keep using 'Ms Johnson' out of respect for her seniority</button>
+          <button class="opt" onclick="ans(this,'B','B','rev1')"><span class="opt-l">B</span>Use 'Sarah' from this point on — in all emails, meetings, and introductions</button>
+          <button class="opt" onclick="ans(this,'C','B','rev1')"><span class="opt-l">C</span>Use her first name only in casual conversation but retain the title in formal emails</button>
+        </div>
+        <div class="sc-rev" id="rev1"><strong>✅ Answer: B is correct</strong><p>Australian egalitarianism is not a formality request — it is a cultural instruction. 'Please call me Sarah' means use Sarah in every context going forward. Options A and C both signal cultural misunderstanding and create social distance. First names across all levels in all contexts is the rule — not a casual option.</p></div>
+      </div>
+    </div>
+    <div class="sc-card reveal">
+      <div class="sc-hd"><div class="sc-num">2</div><h3>The Meeting Boast</h3></div>
+      <div class="sc-body">
+        <div class="sc-sit">In a team meeting, you are presenting a project that has delivered significant results. A colleague in India suggested you 'confidently highlight your achievements' to make an impact. You mention the strong revenue figures, the complexity of the project, and describe it as 'outstanding work by the team — including myself.' How do Australian colleagues likely receive this?</div>
+        <div id="opts2">
+          <button class="opt" onclick="ans(this,'A','B','rev2')"><span class="opt-l">A</span>Positively — confidence is respected in professional settings globally</button>
+          <button class="opt" onclick="ans(this,'B','B','rev2')"><span class="opt-l">B</span>With subtle discomfort — the self-attribution phrasing activates Tall Poppy Syndrome</button>
+          <button class="opt" onclick="ans(this,'C','B','rev2')"><span class="opt-l">C</span>Neutrally — they are focused on the numbers, not on how you describe your role</button>
+        </div>
+        <div class="sc-rev" id="rev2"><strong>✅ Answer: B is correct</strong><p>Tall Poppy Syndrome is real and significant in Australian professional culture. Self-attribution — 'including myself' — is the kind of phrasing that creates subtle social friction. The correct approach: describe the results matter-of-factly, attribute the work to the team, and let others draw conclusions about your contribution. Understatement is a professional skill here.</p></div>
+      </div>
+    </div>
+    <div class="sc-card reveal">
+      <div class="sc-hd"><div class="sc-num">3</div><h3>The Beach Weekend</h3></div>
+      <div class="sc-body">
+        <div class="sc-sit">It's your first weekend in Sydney. You head to Bondi Beach. It's a beautiful day with light waves — the water looks calm and inviting. You can see the red and yellow flags about 100 metres up the beach. There's a clear patch of sand much closer to you, and the water looks identical. Do you swim here?</div>
+        <div id="opts3">
+          <button class="opt" onclick="ans(this,'A','C','rev3')"><span class="opt-l">A</span>Yes — the water looks calm and you are a strong swimmer</button>
+          <button class="opt" onclick="ans(this,'B','C','rev3')"><span class="opt-l">B</span>Maybe — you wade in but stay very shallow near the shore</button>
+          <button class="opt" onclick="ans(this,'C','C','rev3')"><span class="opt-l">C</span>No — walk 100 metres to swim between the red and yellow flags</button>
+        </div>
+        <div class="sc-rev" id="rev3"><strong>✅ Answer: C is correct</strong><p>Rip currents are the leading cause of drowning in Australia — they are invisible from the surface and affect strong swimmers severely. The flags mark the lifeguard-patrolled, rip-current-safe zone regardless of how calm the water looks anywhere else. Options A and B are genuine safety risks. The 100-metre walk takes 2 minutes and can save your life. Always swim between the flags — no exceptions.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 10 EMERGENCY ═══════════════════════════════ -->
+<section class="section dark-band" id="emergency">
+  <div class="section-inner">
+    <div class="sec-tag" style="color:var(--gold)">Section 09 · Emergency &amp; Safety</div>
+    <h2 class="sh sh-w">Emergency <em>Contacts</em></h2>
+    <p class="lead lead-w">000. Three zeros. Australia's emergency number is different from every other country in this toolkit. Know it before you need it.</p>
+
+    <div class="alert-reversed reveal" style="margin-bottom:24px">
+      <div class="ar-icon">🚨</div>
+      <p>In Australia, emergency services are reached by calling <strong>000 — Triple Zero</strong>. NOT 999. NOT 112. NOT 911. Dialling the wrong number in an emergency wastes critical time. Save 000 before you save anything else.</p>
+    </div>
+
+    <div class="em-grid reveal">
+      <div class="em-card" style="background:var(--green-l);border:2px solid var(--green)"><div class="em-num" style="color:var(--green-d)">000</div><div class="em-lbl" style="color:var(--green-d)">Triple Zero</div><div class="em-sub">Police · Ambulance · Fire — Australia only</div></div>
+      <div class="em-card" style="background:var(--ocean-l);border:2px solid var(--ocean-m)"><div class="em-num" style="color:var(--ocean);font-size:1.8rem">131 444</div><div class="em-lbl" style="color:var(--ocean)">Police Non-Emergency</div><div class="em-sub">Theft, lost property, minor incidents</div></div>
+      <div class="em-card" style="background:#FFFDE7;border:2px solid var(--gold-d)"><div class="em-num" style="color:var(--gold-dk);font-size:1.8rem">13SICK</div><div class="em-lbl" style="color:var(--gold-dk)">After-Hours GP</div><div class="em-sub">Home visit — arrives 1–2 hours</div></div>
+      <div class="em-card" style="background:rgba(255,255,255,.06);border:1px solid rgba(249,168,37,.3)"><div class="em-num" style="color:var(--gold);font-size:1.6rem">13 11 26</div><div class="em-lbl" style="color:#fff">Lifeline</div><div class="em-sub">24hr crisis support — free, confidential</div></div>
+    </div>
+
+    <div class="safety-list reveal">
+      <div class="safety-item"><div class="si-icon">📞</div><p><strong style="color:var(--gold)">Cipla HR Business Partner</strong> — first call for any work issue or emergency abroad. Save before you leave India.</p></div>
+      <div class="safety-item"><div class="si-icon">🌍</div><p><strong style="color:var(--gold)">Cipla Global Mobility Team</strong> — visa, housing, health insurance, and tax assistance for Australia</p></div>
+      <div class="safety-item"><div class="si-icon">🧠</div><p><strong style="color:var(--gold)">EAP Programme</strong> — mental health and counselling, 24/7, confidential. Access through HR.</p></div>
+      <div class="safety-item"><div class="si-icon">🏛️</div><p><strong style="color:var(--gold)">High Commission of India, Canberra</strong> — +61-2-6273-3999</p></div>
+      <div class="safety-item"><div class="si-icon">🏛️</div><p><strong style="color:var(--gold)">Consulate General of India, Sydney</strong> — +61-2-9223-9500</p></div>
+      <div class="safety-item"><div class="si-icon">🏛️</div><p><strong style="color:var(--gold)">Consulate General of India, Melbourne</strong> — +61-3-9384-0141</p></div>
+      <div class="safety-item"><div class="si-icon">🏥</div><p><strong style="color:var(--gold)">Sydney:</strong> Royal Prince Alfred Hospital (Camperdown) · St Vincent's (Darlinghurst — central, very good)</p></div>
+      <div class="safety-item"><div class="si-icon">🏥</div><p><strong style="color:var(--gold)">Melbourne:</strong> The Alfred Hospital (South Melbourne — Level 1 trauma) · Epworth (Richmond — top private)</p></div>
+      <div class="safety-item"><div class="si-icon">🌐</div><p><strong style="color:var(--gold)">Smart Traveller:</strong> Register at smartraveller.gov.au before travel — Australia's government emergency support system for travellers. 5 minutes to complete.</p></div>
+    </div>
+
+    <h3 style="color:var(--gold);font-family:var(--serif);font-size:1.3rem;margin:36px 0 16px">Safety in Australia</h3>
+    <div class="two-col reveal">
+      <div class="ic ic-dark"><h4>✅ Australia is very safe</h4><ul><li>Violent crime against visitors is rare — one of the world's safest countries</li><li>Petty crime: Far less common than in Europe. Standard urban caution in crowded late-night areas.</li><li>Bushfire season (Oct–Mar): Monitor local fire authority apps if visiting national parks. Heed total fire ban warnings.</li><li>Public transport very safe at all hours in major cities</li></ul></div>
+      <div class="ic ic-dark"><h4>⚠️ The real risks</h4><ul><li>Ocean rips: Leading cause of drowning — always swim between red and yellow flags</li><li>UV radiation: UV 11–13 in summer. Skin damage in 11 minutes. SPF 50+ is medical, not optional.</li><li>Wildlife: Awareness plus common sense = near-zero risk. Call building manager for spiders/snakes.</li><li>Translating service: Call 131 450 (24hrs) for Hindi interpretation in medical or emergency situations</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 11 RULES ════════════════════════════════════ -->
+<section class="section" id="rules" style="background:var(--cream)">
+  <div class="section-inner">
+    <div class="sec-tag">Section 10 · Golden Rules</div>
+    <h2 class="sh">Australia's <em>Golden Rules</em></h2>
+    <p class="lead">The sun is dangerous, the coffee is serious, and everyone is on first names. Get these three right and everything else will follow naturally.</p>
+    <div class="dd-wrap reveal">
+      <div class="dd-col">
+        <div class="dd-hd do-hd">✅ DO — Always</div>
+        <div class="dd-item do-item">Use first names with everyone from Day 1 — including senior leaders</div>
+        <div class="dd-item do-item">Wear SPF 50+ sunscreen every time you go outdoors</div>
+        <div class="dd-item do-item">Learn your coffee order — a flat white signals cultural awareness</div>
+        <div class="dd-item do-item">Save 000 (Triple Zero) before anything else</div>
+        <div class="dd-item do-item">Swim only between the red and yellow flags at beaches</div>
+        <div class="dd-item do-item">Buy an Opal (Sydney) or Myki (Melbourne) card on Day 1</div>
+        <div class="dd-item do-item">Accept BBQ and social invitations — bring something</div>
+        <div class="dd-item do-item">Confirm private health insurance details from HR before arrival</div>
+        <div class="dd-item do-item">Register at smartraveller.gov.au before you travel</div>
+        <div class="dd-item do-item">Check the BOM app every morning in Melbourne — every single morning</div>
+      </div>
+      <div class="dd-col">
+        <div class="dd-hd dn-hd">❌ DON'T — Avoid</div>
+        <div class="dd-item dn-item">Don't boast about achievements, salary, or status — Tall Poppy Syndrome is real</div>
+        <div class="dd-item dn-item">Don't call 999 or 112 — Australia's number is 000</div>
+        <div class="dd-item dn-item">Don't go outside without sunscreen between October and March</div>
+        <div class="dd-item dn-item">Don't swim outside the red and yellow flags — ever</div>
+        <div class="dd-item dn-item">Don't use formal titles in an Australian office — Sir/Madam is jarring</div>
+        <div class="dd-item dn-item">Don't tip on top of a Sunday surcharge already added to the bill</div>
+        <div class="dd-item dn-item">Don't plan major business for December 23 – January 15</div>
+        <div class="dd-item dn-item">Don't talk over an Acknowledgement of Country at meetings</div>
+        <div class="dd-item dn-item">Don't underestimate distance — Sydney to Perth is a 5-hour flight</div>
+        <div class="dd-item dn-item">Don't interact with wildlife — call your building manager or a removal service</div>
+      </div>
+    </div>
+    <div class="gold-box reveal">
+      <div class="gold-box-icon">🏄</div>
+      <p><strong>Before you do anything else on Day 1:</strong> Save 000. Buy SPF 50+ at Chemist Warehouse. Get an Opal or Myki card. Order a flat white. Say 'g'day' to your neighbour. Register at smartraveller.gov.au. None of this is difficult — it is just different.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section id="closing">
+  <div class="dot-field" id="closingDots"></div>
+  <div class="close-inner">
+    <div class="hero-flag" style="font-size:56px;margin-bottom:24px">🇦🇺</div>
+    <p class="big-q">"Australia will feel familiar in language but surprise you in culture. The sun is dangerous, the coffee is serious, and everyone is on first names. <strong>Get these three right and everything else will follow.</strong>"</p>
+    <p class="meta" style="margin-top:20px">Cipla Limited · EMEU Cultural Toolkit · Short-Term Assignment Guide · For Internal Use Only</p>
+  </div>
+</section>
+
+<script>
+/* progress bar */
+window.addEventListener('scroll',()=>{const p=window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;document.getElementById('progress-bar').style.width=p+'%'});
+
+/* scroll reveal */
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* floating dots */
+function spawnDots(id){
+  const c=document.getElementById(id);if(!c)return;
+  const cols=['#F9A825','#1B5E20','#01579B','rgba(255,255,255,0.25)'];
+  for(let i=0;i<18;i++){
+    const d=document.createElement('div');d.className='gd';
+    const s=Math.random()*8+3;
+    d.style.cssText=`width:${s}px;height:${s}px;left:${Math.random()*100}%;top:${100+Math.random()*30}%;background:${cols[Math.floor(Math.random()*cols.length)]};opacity:${Math.random()*.3+.06};border-radius:50%;animation-duration:${Math.random()*10+8}s;animation-delay:${Math.random()*6}s;`;
+    c.appendChild(d);
+  }
+}
+spawnDots('dotField');spawnDots('closingDots');
+
+/* housing tabs */
+function switchTab(tabId,group){
+  document.querySelectorAll(`[id^="tab-"][id$="-${group}"]`).forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(`tab-${tabId}-${group}`).classList.add('active');
+  event.target.classList.add('active');
+}
+
+/* quiz */
+function ans(btn,chosen,correct,revId){
+  const wrap=btn.parentElement;if(wrap.dataset.done)return;wrap.dataset.done='1';
+  wrap.querySelectorAll('.opt').forEach(b=>{
+    const l=b.querySelector('.opt-l').textContent;
+    if(l===correct)b.classList.add('ok');
+    else if(l===chosen&&chosen!==correct)b.classList.add('no');
+    b.style.cursor='default';
+  });
+  document.getElementById(revId).classList.add('show');
+}
+
+/* mascot section tips */
+const tips={
+  snapshot:"26 million people on the world's 6th largest landmass. Everyone lives near the coast. The interior is extraordinary, but your meeting is in a glass tower in Sydney CBD.",
+  transport:"Driving on the left felt natural straight away — same as India. The Opal card by Day 2. The UV index by Day 3. Wear sunscreen.",
+  work:"I called my manager 'Mr Williams' in my first email. He replied: 'Please call me Dave. Mr Williams is my father and he is retired.'",
+  dining:"Order a flat white. Learn it, live it. It is the secret handshake of Australian professional culture and it costs A$5.",
+  cost:"Sydney rent will genuinely shock you. The serviced apartment costs more per week than many Indian monthly rents. Claim every expense from Cipla. That is what the policy is for.",
+  daily:"I found a redback spider in my apartment garage. I called the building manager instead of heroically removing it. This was the correct decision.",
+  housing:"Confirm private health insurance details before you land. And buy SPF 50+ at Chemist Warehouse before you leave the airport. In that precise order.",
+  customs:"When cricket comes up, mention the India-Australia series. It will start a conversation lasting the entire lunch break and make you three new friends.",
+  emergency:"000. Three zeros. Say it out loud right now. Every other number is wrong in Australia.",
+  rules:"Australia will feel familiar in language but surprise you in culture. Get the three basics right and everything else follows.",
+};
+const bubble=document.getElementById('mascotBubble');
+const mascotText=document.getElementById('mascotText');
+let cur='';
+const secObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&tips[e.target.id]&&cur!==e.target.id){
+      cur=e.target.id;bubble.classList.remove('show');
+      setTimeout(()=>{mascotText.textContent=tips[e.target.id];bubble.classList.add('show')},350);
+    }
+  });
+},{threshold:0.3});
+Object.keys(tips).forEach(id=>{const el=document.getElementById(id);if(el)secObs.observe(el)});
+
+document.querySelectorAll('.stat-card').forEach((c,i)=>{c.style.transitionDelay=(i*.1)+'s'});
+</script>
+</body>
+</html>
